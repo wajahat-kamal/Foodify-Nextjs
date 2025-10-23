@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { MapPin, IndianRupee, Heart } from "lucide-react";
+import { MapPin, Heart } from "lucide-react";
 
 interface ProjectProps {
   title: string;
@@ -10,7 +10,10 @@ interface ProjectProps {
   image: string;
 }
 
-const ProjectCard: React.FC<ProjectProps> = ({ title, price, location, image }) => {
+const ProjectCard = ({project}: any) => {
+
+    const { title, price, location, image } =  project;
+
   return (
     <div className="group relative bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer w-[320px]">
       {/* Image Section */}
@@ -39,7 +42,6 @@ const ProjectCard: React.FC<ProjectProps> = ({ title, price, location, image }) 
 
         <div className="flex items-center justify-between mt-3">
           <p className="flex items-center gap-1 text-lg font-semibold text-primary">
-            <IndianRupee size={18} />
             {price}
           </p>
 

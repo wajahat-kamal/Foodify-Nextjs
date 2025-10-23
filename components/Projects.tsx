@@ -1,7 +1,7 @@
 import React from "react";
 import { projectsData } from "../assets/assets.js";
 import Image from "next/image.js";
-import ProjectCard from "./ProjectCard.js";
+import ProjectCard from "./ProjectCard";
 
 const Projects = () => {
   return (
