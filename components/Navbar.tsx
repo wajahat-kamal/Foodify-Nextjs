@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { assets } from "@/assets/assets";
+import Image from "next/image";
 
 const NAV_ITEMS = ["Home", "About", "Projects", "Testimonials", "Contact"];
 
@@ -54,7 +55,7 @@ export default function Navbar() {
 
         {/* Mobile burger */}
         <div className="md:hidden">
-          <img
+          <Image
             onClick={() => setIsOpen(true)}
             aria-label="Open menu"
             aria-expanded={isOpen}
