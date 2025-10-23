@@ -3,16 +3,19 @@ import React from "react";
 import Image from "next/image";
 import { MapPin, Heart } from "lucide-react";
 
-interface ProjectProps {
+interface Project {
   title: string;
   price: string | number;
   location: string;
   image: string;
 }
 
-const ProjectCard = ({project}: any) => {
+interface ProjectCardProps {
+  project: Project;
+}
 
-    const { title, price, location, image } =  project;
+const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+  const { title, price, location, image } = project;
 
   return (
     <div className="group relative bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer w-[320px]">
