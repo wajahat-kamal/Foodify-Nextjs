@@ -1,33 +1,6 @@
-import React, { useEffect, useState } from "react";
 import { FileText, MessageSquare, FileMinus } from "lucide-react";
-import BlogTableItem from "../../components/admin/BlogTableItem";
-import { UseAppContext } from "../../context/AppContext";
-import toast from "react-hot-toast";
 
 function Dashboard() {
-  const [dashboardData, setDashboardData] = useState({
-    blogs: 0,
-    comments: 0,
-    drafts: 0,
-    recentBlogs: [],
-  });
-
-  const { axios } = UseAppContext();
-
-  const fetchBlogs = async () => {
-    try {
-      const { data } = await axios.get("/api/admin/dashboard");
-      data.success
-        ? setDashboardData(data.dashboardData)
-        : toast.error(data.error);
-    } catch (error) {
-      toast.error(error.message);
-    }
-  };
-
-  useEffect(() => {
-    fetchBlogs();
-  }, []);
 
   return (
     <div className="px-3 py-2 w-full">
