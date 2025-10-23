@@ -9,7 +9,7 @@ import { ToastContainer } from 'react-toastify';
 
 function Home() {
   return (
-    <div className='w-full overflow-hidden '>
+    <div className='w-full overflow-hidden bg-[#0B111E]'>
       <ToastContainer/>
       <Header/>
       <About/>
