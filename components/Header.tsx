@@ -13,7 +13,7 @@ function Header() {
 
       {/* Hero Content */}
       <div className="relative z-10 px-6 sm:px-10">
-        <h1 className="text-4xl sm:text-6xl md:text-[82px] inline-block max-w-3xl font-semibold pt-20 text-white">
+        <h1 className="text-4xl sm:text-6xl md:text-[78px] inline-block max-w-3xl font-semibold pt-20 text-white">
           Explore homes that fit your dreams
         </h1>
 
