@@ -1,6 +1,5 @@
 import React from "react";
 import { projectsData } from "../assets/assets.js";
-import Image from "next/image.js";
 import ProjectCard from "./ProjectCard";
 
 const Projects = () => {
@@ -22,8 +21,8 @@ const Projects = () => {
 
       {/* Project Cards Grid */}
       <div className="flex flex-wrap justify-center gap-8">
-        {projectsData.map((project, index) => (
-          <ProjectCard project={project} index={index}/>
+        {projectsData.map((project) => (
+          <ProjectCard project={project}/>
         ))}
       </div>
     </section>

@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { MapPin, Heart } from "lucide-react";
+import { Heart } from "lucide-react";
 
 interface ProjectProps {
   title: string;
