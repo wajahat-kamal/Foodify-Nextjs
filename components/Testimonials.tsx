@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import Image from "next/image";
-import { assets, testimonialsData } from "../assets/assets";
+import { assets, testimonialsData } from "@/assets/assets";
 
 interface Testimonial {
   image: string;
