@@ -8,7 +8,6 @@ function Header() {
       className="relative h-screen w-full bg-cover bg-center flex flex-col items-center justify-center text-center overflow-hidden"
       style={{ backgroundImage: "url('header_img.png')" }}
     >
-
       {/* Navbar */}
       <Navbar />
 
