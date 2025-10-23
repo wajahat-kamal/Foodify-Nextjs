@@ -36,10 +36,13 @@ const ProjectCard: React.FC<{ project: ProjectProps }> = ({ project }) => {
         <div className="absolute bottom-3 left-3 bg-white/90 text-gray-800 text-sm font-semibold px-3 py-1.5 rounded-full shadow-sm backdrop-blur-sm">
           {price}
         </div>
+        <div className="absolute bottom-3 right-3 bg-white/90 text-gray-800 text-sm font-medium px-3 py-1.5 rounded-full shadow-sm backdrop-blur-sm">
+          {location}
+        </div>
       </div>
 
       {/* Details Section */}
-      <div className="p-5">
+      {/* <div className="p-5 flex flex-wrap justify-between">
         <h3 className="text-lg font-semibold text-gray-900 group-hover:text-primary transition-colors duration-300">
           {title}
         </h3>
@@ -47,7 +50,7 @@ const ProjectCard: React.FC<{ project: ProjectProps }> = ({ project }) => {
           <MapPin size={15} className="text-primary" />
           <span>{location}</span>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

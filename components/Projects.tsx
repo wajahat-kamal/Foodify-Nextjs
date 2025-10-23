@@ -23,7 +23,7 @@ const Projects = () => {
       {/* Project Cards Grid */}
       <div className="flex flex-wrap justify-center gap-8">
         {projectsData.map((project, index) => (
-          <ProjectCard project={project} index={index}/>
+          <ProjectCard project={project}/>
         ))}
       </div>
     </section>
