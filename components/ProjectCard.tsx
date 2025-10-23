@@ -1,13 +1,13 @@
 "use client";
 import React from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { Heart } from "lucide-react";
 
 interface ProjectProps {
   title: string;
   price: string | number;
   location: string;
-  image: string;
+  image: string | StaticImageData;
 }
 
 const ProjectCard: React.FC<{ project: ProjectProps }> = ({ project}) => {
