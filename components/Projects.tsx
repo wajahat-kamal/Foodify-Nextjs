@@ -1,6 +1,7 @@
 import React from "react";
 import { projectsData } from "../assets/assets.js";
 import Image from "next/image.js";
+import ProjectCard from "./ProjectCard.js";
 
 const Projects = () => {
   return (
@@ -22,29 +23,7 @@ const Projects = () => {
       {/* Project Cards Grid */}
       <div className="flex flex-wrap justify-center gap-8">
         {projectsData.map((project, index) => (
-          <div
-            key={index}
-            className="relative w-full sm:w-[45%] lg:w-[22%] flex-shrink-0"
-          >
-            {/* Project Image */}
-            <Image
-              src={project.image}
-              alt={project.title}
-              className="w-full h-auto mb-14 rounded-lg shadow-lg"
-            />
-
-            {/* Floating Card Info */}
-            <div className="absolute left-0 right-0 bottom-5 flex justify-center">
-              <div className="inline-block bg-white w-3/4 px-4 py-2 shadow-md rounded-md text-center">
-                <h2 className="text-lg  font-semibold text-gray-900">
-                  {project.title}
-                </h2>
-                <p className="text-gray-500 text-sm">
-                  {project.price} <span className="px-1">|</span> {project.location}
-                </p>
-              </div>
-            </div>
-          </div>
+          <ProjectCard project={project} index={index}/>
         ))}
       </div>
     </section>
