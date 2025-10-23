@@ -59,8 +59,8 @@ const Testimonials: React.FC = () => {
             <Image
               src={assets.left_arrow}
               alt="Previous"
-              width={7}
-              height={7}
+              width={8}
+              height={8}
               className="invert"
             />
           </button>
@@ -71,8 +71,8 @@ const Testimonials: React.FC = () => {
             <Image
               src={assets.right_arrow}
               alt="Next"
-              width={7}
-              height={7}
+              width={8}
+              height={8}
               className="invert"
             />
           </button>
