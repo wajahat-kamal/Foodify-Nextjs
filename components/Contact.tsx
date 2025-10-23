@@ -26,7 +26,7 @@ const Contact: React.FC = () => {
 
       if (data.success) {
         setResult("");
-        toast.success("Form Submitted Successfully");
+        toast.success("Message Submitted Successfully");
         form.reset();
       } else {
         console.error("Error", data);
