@@ -54,25 +54,25 @@ const Testimonials: React.FC = () => {
         <div className="flex items-center gap-3">
           <button
             onClick={() => scroll("left")}
-            className="p-3 rounded-xl bg-gray-800/70 border border-gray-700 hover:bg-primary/30 hover:border-primary/40 backdrop-blur-sm transition-all duration-300"
+            className="py-2 px-3 rounded-xl bg-gray-800/70 border border-gray-700 hover:bg-primary/30 hover:border-primary/40 backdrop-blur-sm transition-all duration-300"
           >
             <Image
               src={assets.left_arrow}
               alt="Previous"
-              width={20}
-              height={20}
+              width={7}
+              height={7}
               className="invert"
             />
           </button>
           <button
             onClick={() => scroll("right")}
-            className="p-3 rounded-xl bg-gray-800/70 border border-gray-700 hover:bg-primary/30 hover:border-primary/40 backdrop-blur-sm transition-all duration-300"
+            className="py-2 px-3 rounded-xl bg-gray-800/70 border border-gray-700 hover:bg-primary/30 hover:border-primary/40 backdrop-blur-sm transition-all duration-300"
           >
             <Image
               src={assets.right_arrow}
               alt="Next"
-              width={20}
-              height={20}
+              width={7}
+              height={7}
               className="invert"
             />
           </button>
