@@ -1,5 +1,6 @@
 "use client";
 import { Mail, Lock, Eye, EyeOff, ArrowLeft } from "lucide-react";
+import { navigate } from "next/navigation";
 import { useState } from "react";
 
 function Login() {
@@ -25,7 +26,7 @@ function Login() {
         <div className="mb-8 flex items-center">
           <button
             type="button"
-            // onClick={() => navigate("/")}
+            onClick={() => navigate("/")}
             className="
               p-2 rounded-full hover:bg-gray-200 transition
               text-gray-200 hover:text-gray-800

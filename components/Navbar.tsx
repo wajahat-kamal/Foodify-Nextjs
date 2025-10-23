@@ -48,7 +48,7 @@ export default function Navbar() {
 
         {/* Desktop signup */}
         <div className="hidden md:block">
-          <a href="/login" className="bg-white text-gray-800 font-medium px-6 py-2 rounded-full transition-all duration-300 hover:bg-primary shadow-md hover:shadow-lg">
+          <a href="/login" className="bg-white text-gray-800 font-medium px-6 py-2 rounded-full transition-all duration-300 hover:bg-primary hover:text-white shadow-md hover:shadow-lg">
            Admin Login
           </a>
         </div>
