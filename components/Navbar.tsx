@@ -48,8 +48,8 @@ export default function Navbar() {
 
         {/* Desktop signup */}
         <div className="hidden md:block">
-          <button className="bg-white text-gray-800 font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:bg-primary hover:text-white shadow-md hover:shadow-lg">
-            Sign Up
+          <button className="bg-white text-gray-800 font-medium px-6 py-2 rounded-full transition-all duration-300 hover:bg-primary shadow-md hover:shadow-lg">
+           Admin Login
           </button>
         </div>
 
@@ -131,7 +131,7 @@ export default function Navbar() {
               onClick={() => setIsOpen(false)}
               className="w-full bg-primary hover:bg-primary/90 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 shadow-md"
             >
-              Sign Up
+              Admin Login
             </button>
           </div>
         </div>

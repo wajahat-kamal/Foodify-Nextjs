@@ -70,12 +70,12 @@ export const projectsData = [
     location: "Chicago",
     image: project_img_6,
   },
-  // {
-  //   title: "Harbor Heights",
-  //   price: "$3,10,000",
-  //   location: "Miami",
-  //   image: project_img_7,
-  // },
+  {
+    title: "Harbor Heights",
+    price: "$3,10,000",
+    location: "Miami",
+    image: project_img_7,
+  },
 ];
 
 export const testimonialsData = [
