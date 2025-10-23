@@ -8,7 +8,7 @@ const Footer = () => {
         <div>
         <div className="flex items-center gap-2 cursor-pointer select-none mb-2">
           <img src="/logo.svg" alt="Homify" className="w-8 h-8 object-contain" />
-          <h1 className="text-2xl font-bold text-white tracking-tight">HOMIFY</h1>
+          <h1 className="text-2xl font-bold text-white tracking-tight">FOODIFY</h1>
         </div>
           <p className="text-gray-400 text-sm leading-relaxed">
             Building homes that inspire and empower lives. Your dream home
@@ -77,7 +77,7 @@ const Footer = () => {
       <div className="border-t border-white/10 mt-10 pt-6 text-center text-sm text-gray-500">
         <p>
           © {new Date().getFullYear()}{" "}
-          <span className="text-primary font-medium">Homify</span> — All Rights
+          <span className="text-primary font-medium">FOODIFY</span> — All Rights
           Reserved.
         </p>
         <p className="mt-2">

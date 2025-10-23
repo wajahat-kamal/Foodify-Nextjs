@@ -29,7 +29,7 @@ export default function Navbar() {
         {/* Logo */}
         <div className="flex items-center gap-2 cursor-pointer select-none">
           <img src="/logo.svg" alt="Homify" className="w-9 h-9 object-contain" />
-          <h1 className="text-2xl font-bold text-white tracking-tight">HOMIFY</h1>
+          <h1 className="text-2xl font-bold text-white tracking-tight">FOODIFY</h1>
         </div>
 
         {/* Desktop links */}
@@ -88,7 +88,7 @@ export default function Navbar() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <img src="/logo.svg" alt="Homify" className="w-8 h-8 object-contain" />
-              <h2 className="text-lg font-bold text-white">HOMIFY</h2>
+              <h2 className="text-lg font-bold text-white">FOODIFY</h2>
             </div>
             <button
               onClick={() => setIsOpen(false)}
