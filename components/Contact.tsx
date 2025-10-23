@@ -1,33 +1,42 @@
-"use client"
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import { toast } from "react-toastify";
 
-const Contact = () => {
-  const [result, setResult] = React.useState("");
+const Contact: React.FC = () => {
+  const [result, setResult] = useState<string>("");
 
-  const onSubmit = async (event) => {
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setResult("Sending....");
-    const formData = new FormData(event.target);
 
-    formData.append("access_key", import.meta.env.VITE_WEB3_ACCESS_KEY);
+    const form = event.currentTarget;
+    const formData = new FormData(form);
 
+    // ✅ Use Next.js environment variable instead of Vite syntax
+    formData.append("access_key", process.env.NEXT_PUBLIC_WEB3_ACCESS_KEY || "");
 
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData,
-    });
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
 
-    const data = await response.json();
+      const data = await response.json();
 
-    if (data.success) {
+      if (data.success) {
+        setResult("");
+        toast.success("Form Submitted Successfully");
+        form.reset();
+      } else {
+        console.error("Error", data);
+        setResult("");
+        toast.error(data.message || "Something went wrong!");
+      }
+    } catch (error) {
+      console.error("Fetch error:", error);
       setResult("");
-      toast.success("Form Submitted Successfully");
-      event.target.reset();
-    } else {
-      console.log("Error", data);
-        setResult('');
-      toast.error(data.message);
+      toast.error("Network error! Please try again.");
     }
   };
 
