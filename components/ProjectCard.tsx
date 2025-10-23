@@ -10,7 +10,7 @@ interface ProjectProps {
   image: string;
 }
 
-const ProjectCard: React.FC<{ project: ProjectProps }> = ({ project }) => {
+const ProjectCard: React.FC<{ project: ProjectProps }> = ({ project}) => {
   const { title, price, location, image } = project;
 
   return (
@@ -41,16 +41,6 @@ const ProjectCard: React.FC<{ project: ProjectProps }> = ({ project }) => {
         </div>
       </div>
 
-      {/* Details Section */}
-      {/* <div className="p-5 flex flex-wrap justify-between">
-        <h3 className="text-lg font-semibold text-gray-900 group-hover:text-primary transition-colors duration-300">
-          {title}
-        </h3>
-        <div className="flex items-center gap-1 mt-1 text-gray-500 text-sm">
-          <MapPin size={15} className="text-primary" />
-          <span>{location}</span>
-        </div>
-      </div> */}
     </div>
   );
 };
