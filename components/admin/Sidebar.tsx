@@ -1,29 +1,38 @@
+"use client";
 import React from "react";
+import Link from "next/link";
 import { LayoutDashboard, FilePlus2 } from "lucide-react";
+import { usePathname } from "next/navigation";
 
-function Sidebar() {
+export default function Sidebar() {
+  const pathname = usePathname();
+
+  const links = [
+    { href: "/admin", label: "Dashboard", icon: <LayoutDashboard className="h-5 w-5" /> },
+    { href: "/admin/add-food", label: "Add Food", icon: <FilePlus2 className="h-5 w-5" /> },
+  ];
 
   return (
-    <aside className="fixed top-17 left-0 md:w-56 w-18 backdrop-blur-xl bg-black/40 h-screen border-r border-gray-200 shadow-sm flex flex-co">
-      <nav className="flex-1 p-2 md:p-4 space-y-3 text-gray-700 ">
-     
-            <a
-              href="/admin"
-              className="flex items-center justify-center md:justify-start gap-3 w-full px-4 py-3 rounded-xl font-medium cursor-pointer transition-all duration-200 bg-blue-100 text-blue-600 shadow-sm hover:bg-gray-100 hover:text-gray-900"
+    <aside className="fixed top-16 left-0 md:w-64 w-20 bg-white h-[calc(100vh-4rem)] border-r border-gray-200 shadow-sm flex flex-col">
+      <nav className="flex-1 p-4 space-y-3">
+        {links.map((link) => {
+          const isActive = pathname === link.href;
+          return (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`flex items-center justify-center md:justify-start gap-3 w-full px-4 py-3 rounded-xl font-medium transition-all duration-200 ${
+                isActive
+                  ? "bg-blue-100 text-blue-600"
+                  : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
+              }`}
             >
-              <LayoutDashboard className="h-5 w-5" />
-              <span className="hidden md:inline-block">Dashboard</span>
-            </a>
-            <a
-              href="/admin/add-food"
-              className="flex items-center justify-center md:justify-start gap-3 w-full px-3 py-3 rounded-xl font-medium cursor-pointer transition-all duration-200 bg-blue-100 text-blue-600 shadow-sm hover:bg-gray-100 hover:text-gray-900"
-            >
-              <FilePlus2 className="h-5 w-5" />
-              <span className="hidden md:inline-block">Add Food</span>
-            </a>
+              {link.icon}
+              <span className="hidden md:inline-block">{link.label}</span>
+            </Link>
+          );
+        })}
       </nav>
     </aside>
   );
 }
-
-export default Sidebar;
