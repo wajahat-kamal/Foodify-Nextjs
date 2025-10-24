@@ -1,5 +1,5 @@
-import AdminNavabar from '@/components/AdminNavabar'
-import Sidebar from '@/components/Sidebar'
+import AdminNavabar from '@/components/admin/AdminNavabar'
+import Sidebar from '@/components/admin/Sidebar'
 import React from 'react'
 import Dashboard from './page'
 
@@ -7,8 +7,9 @@ function Layout() {
   return (
     <div>
       <AdminNavabar/>
-      <div>
+      <div className='mt-20 flex flex-row w-full'>
       <Sidebar/>
+      <Dashboard/>
       </div>
     </div>
   )
