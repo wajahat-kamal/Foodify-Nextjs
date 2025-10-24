@@ -1,128 +1,95 @@
 "use client";
-import { Mail, Lock, Eye, EyeOff, ArrowLeft } from "lucide-react";
-import { navigate } from "next/navigation";
-import { useState } from "react";
 
-function Login() {
+import React, { useState } from "react";
+import { toast } from "react-toastify";
+import { Lock, Mail } from "lucide-react";
+
+const AdminLogin: React.FC = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
-  const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async () => {};
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+  };
 
   return (
-    <div
-      className="min-h-screen flex items-center justify-center px-4 bg-[#EEF2FE] bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('header_img.png')" }}
+    <section
+      className="relative w-full h-screen flex items-center justify-center bg-cover bg-center"
+      style={{ backgroundImage: "url('/header_img.jpg')" }}
     >
-      <div
-        className="
-          w-full max-w-md p-8
-          rounded-2xl border border-white/20
-          bg-secondary backdrop-blur-lg
-          shadow-2xl
-        "
-      >
-        {/* ---------- Header ---------- */}
-        <div className="mb-8 flex items-center">
-          <button
-            type="button"
-            onClick={() => navigate("/")}
-            className="
-              p-2 rounded-full hover:bg-gray-200 transition
-              text-gray-200 hover:text-gray-800
-            "
-          >
-            <ArrowLeft size={20} />
-          </button>
-          <div className="flex-1 text-center">
-            <h1 className="text-3xl font-extrabold text-gray-100">
-              <span className="text-primary">Admin</span> Login
-            </h1>
-            <p className="text-sm text-gray-100 mt-2">
-              Sign in to manage your blog dashboard
-            </p>
-          </div>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
+
+      {/* Login Card */}
+      <div className="relative z-10 w-[90%] max-w-md bg-white/10 border border-white/20 backdrop-blur-xl rounded-2xl p-8 text-white shadow-lg">
+        {/* Title */}
+        <div className="text-center mb-6">
+          <h1 className="text-3xl font-bold mb-2">
+            Admin <span className="text-yellow-400">Login</span>
+          </h1>
+          <p className="text-gray-300 text-sm">
+            Welcome back! Please enter your credentials.
+          </p>
         </div>
 
-        {/* ---------- Form ---------- */}
-        <form onSubmit={handleSubmit} className="space-y-6">
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="space-y-5">
           {/* Email */}
           <div>
-            <label className="block text-sm font-medium text-gray-200 mb-1">
-              Email Address
-            </label>
-            <div className="relative">
-              <Mail className="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-gray-200" />
+            <label className="text-sm font-medium mb-1 block">Email</label>
+            <div className="flex items-center bg-[#0B111E]/60 border border-gray-700 rounded-lg px-3 py-2 focus-within:border-yellow-400 transition-all">
+              <Mail className="text-gray-400 w-4 h-4 mr-2" />
               <input
                 type="email"
                 name="email"
+                placeholder="admin@foodify.com"
                 value={formData.email}
-                onChange={(e: any) => setFormData(e.target.value)}
+                onChange={handleChange}
                 required
-                placeholder="admin@example.com"
-                className="
-                  w-full pl-10 pr-4 py-2 rounded-lg
-                  border border-gray-200
-                  focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200
-                  outline-none text-gray-200
-                  transition duration-200
-                "
+                className="w-full bg-transparent text-gray-200 placeholder-gray-500 outline-none"
               />
             </div>
           </div>
 
           {/* Password */}
           <div>
-            <label className="block text-sm font-medium text-gray-200 mb-1">
-              Password
-            </label>
-            <div className="relative">
-              <Lock className="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-gray-200" />
+            <label className="text-sm font-medium mb-1 block">Password</label>
+            <div className="flex items-center bg-[#0B111E]/60 border border-gray-700 rounded-lg px-3 py-2 focus-within:border-yellow-400 transition-all">
+              <Lock className="text-gray-400 w-4 h-4 mr-2" />
               <input
-                type={showPassword ? "text" : "password"}
+                type="password"
                 name="password"
-                value={formData.password}
-                onChange={(e: any) => setFormData(e.target.value)}
-                required
                 placeholder="••••••••"
-                className="
-                  w-full pl-10 pr-10 py-2 rounded-lg
-                  border border-gray-200
-                  focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200
-                  transition duration-200
-                "
+                value={formData.password}
+                onChange={handleChange}
+                required
+                className="w-full bg-transparent text-gray-200 placeholder-gray-500 outline-none"
               />
-              <button
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}
-                className="
-                  absolute right-3 top-1/2 -translate-y-1/2
-                  text-gray-200 transition
-                "
-              >
-                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
-              </button>
             </div>
           </div>
 
-          {/* Submit */}
+          {/* Submit Button */}
           <button
             type="submit"
-            className="
-              w-full py-3
-              bg-primary
-              text-white font-semibold text-lg rounded-lg
-              shadow-md
-              hover:shadow-xl hover:scale-[1.02]
-              transition-all duration-300
-            "
+            disabled={loading}
+            className="w-full py-3 bg-yellow-500 hover:bg-yellow-400 text-black font-semibold rounded-lg transition-all duration-300 shadow-md hover:shadow-yellow-400/30"
           >
-            Login
+            {loading ? "Logging in..." : "Login"}
           </button>
         </form>
-      </div>
-    </div>
-  );
-}
 
-export default Login;
+        {/* Footer Text */}
+        <p className="text-center text-gray-400 text-sm mt-6">
+          © {new Date().getFullYear()} Foodify Admin Panel
+        </p>
+      </div>
+    </section>
+  );
+};
+
+export default AdminLogin;
