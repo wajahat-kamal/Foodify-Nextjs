@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { assets } from "@/assets/assets";
 import Image from "next/image";
+import { X } from "lucide-react";
 
 const NAV_ITEMS = ["Home", "About", "Menu", "Testimonials", "Contact"];
 
@@ -24,18 +25,22 @@ export default function Navbar() {
           scrolled
             ? "backdrop-blur-xl bg-[#0B111E]/90 border-b border-yellow-500/20 shadow-lg"
             : "bg-transparent"
-        } px-6 md:px-10 lg:px-40 py-4 flex items-center justify-between`}
+        } px-4 md:px-8 lg:px-40 py-3 md:py-2 lg:py-4 flex items-center justify-between`}
       >
         {/* Logo */}
         <div className="flex items-center gap-2 cursor-pointer select-none">
-          <img src="/logo.svg" alt="Foodify" className="w-9 h-9 object-contain" />
-          <h1 className="text-2xl font-bold text-yellow-400 tracking-tight">
+          <img
+            src="/logo.svg"
+            alt="Foodify"
+            className="w-8 h-8 md:w-7 md:h-7 lg:w-9 lg:h-9 object-contain"
+          />
+          <h1 className="text-xl md:text-lg lg:text-2xl font-bold text-yellow-400 tracking-tight">
             FOODIFY
           </h1>
         </div>
 
         {/* Desktop Links */}
-        <ul className="hidden md:flex space-x-8 text-white/90 font-medium">
+        <ul className="hidden md:flex space-x-6 lg:space-x-8 text-white/90 font-medium text-sm lg:text-base">
           {NAV_ITEMS.map((item) => (
             <li key={item}>
               <a
@@ -52,7 +57,7 @@ export default function Navbar() {
         <div className="hidden md:block">
           <a
             href="/login"
-            className="bg-yellow-400 text-black font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:bg-yellow-500 shadow-md hover:shadow-yellow-500/30"
+            className="bg-yellow-400 text-black font-semibold px-5 py-1.5 lg:px-6 lg:py-2 rounded-full text-sm lg:text-base transition-all duration-300 hover:bg-yellow-500 shadow-md hover:shadow-yellow-500/30"
           >
             Admin Login
           </a>
@@ -63,14 +68,14 @@ export default function Navbar() {
           <Image
             onClick={() => setIsOpen(true)}
             aria-label="Open menu"
-            className="p-2 w-10 h-10 rounded-md text-white hover:bg-white/10 transition cursor-pointer"
+            className="p-2 w-9 h-9 rounded-md text-white hover:bg-white/10 transition cursor-pointer"
             src={assets.menu_icon}
             alt="menu"
           />
         </div>
       </nav>
 
-      {/* Overlay (when mobile menu open) */}
+      {/* Overlay */}
       <div
         className={`fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ${
           isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
@@ -88,14 +93,18 @@ export default function Navbar() {
           {/* Header */}
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <img src="/logo.svg" alt="Foodify" className="w-8 h-8 object-contain" />
+              <img
+                src="/logo.svg"
+                alt="Foodify"
+                className="w-8 h-8 object-contain"
+              />
               <h2 className="text-lg font-bold text-yellow-400">FOODIFY</h2>
             </div>
             <button
               onClick={() => setIsOpen(false)}
               className="p-2 rounded-md text-gray-300 hover:bg-yellow-400/10 hover:text-yellow-400 transition"
             >
-              ✕
+              <X />
             </button>
           </div>
 

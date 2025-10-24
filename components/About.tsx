@@ -1,5 +1,5 @@
 import React from "react";
-import brandImg from "@/assets/brand_img.png";
+import brandImg from "@/assets/brand_img.jpg";
 import Image from "next/image";
 
 const About = () => {

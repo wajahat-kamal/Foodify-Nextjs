@@ -17,23 +17,26 @@ function Header() {
       </div>
 
       {/* Hero Content */}
-      <div className="relative z-10 px-6 sm:px-10">
-        <h1 className="text-4xl sm:text-6xl md:text-7xl inline-block max-w-3xl font-semibold pt-20 text-white drop-shadow-lg">
-          Delight in Every Bite <span className="text-yellow-400 text-6xl">Welcome to Foodify</span>
+      <div className="relative z-10 px-4 sm:px-10 mt-10 sm:mt-0">
+        <h1 className="text-3xl sm:text-5xl md:text-7xl font-semibold text-white drop-shadow-lg leading-tight">
+          Delight in Every Bite{" "}
+          <span className="block text-yellow-400 text-2xl sm:text-4xl md:text-6xl mt-2">
+            Welcome to Foodify
+          </span>
         </h1>
 
-        <div className="flex flex-wrap justify-center gap-6 mt-12">
+        <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mt-10 sm:mt-12">
           <a
-            href="#projects"
-            className="border border-white text-white px-8 py-3 rounded-full font-medium transition-all duration-300 hover:bg-white hover:text-black hover:scale-105"
+            href="#menu"
+            className="border border-white text-white text-sm sm:text-base px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-medium transition-all duration-300 hover:bg-white hover:text-black hover:scale-105"
           >
             Explore Menu
           </a>
           <a
             href="#contact"
-            className="bg-yellow-500 text-black px-8 py-3 rounded-full font-medium transition-all duration-300 hover:bg-yellow-400 hover:scale-105"
+            className="bg-yellow-500 text-black text-sm sm:text-base px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-medium transition-all duration-300 hover:bg-yellow-400 hover:scale-105"
           >
-             Order Now
+            Order Now
           </a>
         </div>
       </div>
