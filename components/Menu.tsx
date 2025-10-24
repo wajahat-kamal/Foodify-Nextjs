@@ -75,7 +75,7 @@ const Menu = () => {
       className="bg-[#0B111E] text-white py-20 px-6 md:px-16 lg:px-24 overflow-hidden"
     >
       {/* Title */}
-      <div className="text-center mb-10">
+      <div className="text-center mb-6">
         <h1 className="text-3xl sm:text-4xl font-bold mb-3">
           Our <span className="text-yellow-400">Menu</span>
         </h1>
@@ -86,7 +86,7 @@ const Menu = () => {
       </div>
 
       {/* Category Buttons */}
-      <div className="flex flex-wrap justify-center gap-3 mb-12">
+      <div className="flex flex-wrap justify-center gap-3 mb-6">
         {categories.map((category) => (
           <button
             key={category}

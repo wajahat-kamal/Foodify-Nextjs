@@ -5,7 +5,7 @@ import { assets } from "@/assets/assets";
 import Image from "next/image";
 import { X } from "lucide-react";
 
-const NAV_ITEMS = ["Home", "About", "Menu", "Testimonials", "Contact"];
+const NAV_ITEMS = ["Home", "About", "Menu", "Reviews", "Contact"];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
