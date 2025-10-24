@@ -1,6 +1,6 @@
 "use client";
 
-import AdminNavbar from "@/components/admin/AdminNavbar";
+import DashboardNavbar from "@/components/admin/DashboardNavbar";
 import Sidebar from "@/components/admin/Sidebar";
 import React from "react";
 
@@ -8,7 +8,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
       {/* Navbar */}
-      <AdminNavbar />
+      <DashboardNavbar />
 
       {/* Main Layout */}
       <div className="flex flex-row mt-16">

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function AdminNavbar() {
+export default function DashboardNavbar() {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-white/70 border-b border-gray-200 shadow-sm px-6 md:px-10 py-4 flex items-center justify-between">
       {/* Logo */}
