@@ -1,7 +1,7 @@
 import AdminNavabar from '@/components/admin/AdminNavabar'
 import Sidebar from '@/components/admin/Sidebar'
 import React from 'react'
-import Dashboard from './Dashboard'
+import Dashboard from './page'
 
 function Layout() {
   return (
