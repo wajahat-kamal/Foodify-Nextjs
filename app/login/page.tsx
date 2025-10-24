@@ -1,12 +1,15 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { Lock, Mail } from "lucide-react";
+import axios from "axios";
 
 const AdminLogin: React.FC = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
+  const router = useRouter(); // ✅ Initialize router
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -14,7 +17,31 @@ const AdminLogin: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
+    if (!formData.email || !formData.password) {
+      toast.error("Please fill in all fields");
+      return;
+    }
+
+    try {
+      setLoading(true);
+      const { data } = await axios.post("/api/login", formData);
+
+      if (data.success) {
+        toast.success(data.message);
+        localStorage.setItem("token", data.token);
+
+        // ✅ Use router.push instead of window.location.href
+        router.push("/admin/dashboard");
+      } else {
+        toast.error(data.message || "Invalid credentials");
+      }
+    } catch (error: any) {
+      console.error(error);
+      toast.error(error.response?.data?.message || "Login failed");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -23,7 +50,7 @@ const AdminLogin: React.FC = () => {
       style={{ backgroundImage: "url('/header_img.jpg')" }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]" />
 
       {/* Login Card */}
       <div className="relative z-10 w-[90%] max-w-md bg-white/10 border border-white/20 backdrop-blur-xl rounded-2xl p-8 text-white shadow-lg">
@@ -77,13 +104,13 @@ const AdminLogin: React.FC = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 bg-yellow-500 hover:bg-yellow-400 text-black font-semibold rounded-lg transition-all duration-300 shadow-md hover:shadow-yellow-400/30"
+            className="w-full py-3 bg-yellow-500 hover:bg-yellow-400 text-black font-semibold rounded-lg transition-all duration-300 shadow-md hover:shadow-yellow-400/30 disabled:opacity-70"
           >
             {loading ? "Logging in..." : "Login"}
           </button>
         </form>
 
-        {/* Footer Text */}
+        {/* Footer */}
         <p className="text-center text-gray-400 text-sm mt-6">
           © {new Date().getFullYear()} Foodify Admin Panel
         </p>
