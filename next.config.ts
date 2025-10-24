@@ -1,9 +1,12 @@
-// next.config.js
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["randomuser.me"], // 👈 add all allowed external image domains here
+    domains: [
+      "images.unsplash.com", // ✅ allow Unsplash
+      "plus.unsplash.com",   // optional (some images come from here)
+      "source.unsplash.com"  // optional
+    ],
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
