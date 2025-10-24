@@ -2,7 +2,6 @@
 import React from "react";
 
 export default function Dashboard() {
-  // Example food data (you can replace this later with fetched data)
   const foodItems = [
     {
       id: 1,
@@ -57,7 +56,6 @@ export default function Dashboard() {
                 }`}
               >
                 <td className="py-4 px-5 text-gray-400">{index + 1}</td>
-
                 <td className="py-4 px-5">
                   <img
                     src={item.image}
@@ -65,13 +63,9 @@ export default function Dashboard() {
                     className="w-12 h-12 rounded-lg object-cover border border-gray-700"
                   />
                 </td>
-
                 <td className="py-4 px-5 font-medium text-gray-100">{item.name}</td>
-
                 <td className="py-4 px-5 text-gray-400">{item.category}</td>
-
                 <td className="py-4 px-5 text-gray-300">Rs. {item.price}</td>
-
                 <td className="py-4 px-5">
                   <span
                     className={`px-3 py-1 rounded-full text-xs font-semibold ${
@@ -91,7 +85,8 @@ export default function Dashboard() {
 
       {/* Summary */}
       <p className="text-gray-400 text-sm">
-        Total Items: <span className="text-white font-semibold">{foodItems.length}</span>
+        Total Items:{" "}
+        <span className="text-white font-semibold">{foodItems.length}</span>
       </p>
     </div>
   );

@@ -13,7 +13,7 @@ export default function Sidebar() {
   ];
 
   return (
-    <aside className="fixed top-16 left-0 md:w-64 w-20 bg-white h-[calc(100vh-4rem)] border-r border-gray-200 shadow-sm flex flex-col">
+    <aside className="fixed top-16 left-0 md:w-64 w-20 bg-[#0B111E] h-[calc(100vh-4rem)] border-r border-gray-800 flex flex-col">
       <nav className="flex-1 p-4 space-y-3">
         {links.map((link) => {
           const isActive = pathname === link.href;
@@ -23,8 +23,8 @@ export default function Sidebar() {
               href={link.href}
               className={`flex items-center justify-center md:justify-start gap-3 w-full px-4 py-3 rounded-xl font-medium transition-all duration-200 ${
                 isActive
-                  ? "bg-blue-100 text-blue-600"
-                  : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
+                  ? "bg-blue-600/20 text-blue-400 border border-blue-700"
+                  : "text-gray-400 hover:bg-[#141B2E] hover:text-white"
               }`}
             >
               {link.icon}
