@@ -1,62 +1,85 @@
 import React from "react";
-import brandImg from "@/assets/brand_img.jpg";
 import Image from "next/image";
+import brandImg from "@/assets/brand_img.jpg";
 
 const About = () => {
   return (
     <section
       id="about"
-      className="flex flex-col items-center justify-center container mx-auto px-6 py-16 pt-20 md:px-16 lg:px-24 w-full overflow-hidden text-white"
+      className="relative flex flex-col items-center justify-center container mx-auto px-6 py-20 md:px-16 lg:px-24 w-full overflow-hidden text-white bg-[#0B111E]"
     >
+      {/* Decorative Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0B111E]/80 to-[#0B111E] pointer-events-none"></div>
+
       {/* Title */}
-      <h1 className="text-3xl sm:text-4xl font-bold mb-2 text-center">
-        About{" "}
-        <span className="underline underline-offset-4 decoration-blue-500 font-light">
-          Our Brand
-        </span>
-      </h1>
-      <p className="text-gray-400 max-w-md text-center mb-10 text-sm sm:text-base">
-        Passionate About Properties, Dedicated to Your Vision
-      </p>
+      <div className="relative text-center mb-12">
+        <h1 className="text-3xl sm:text-4xl font-bold mb-3">
+          About{" "}
+          <span className="underline underline-offset-4 decoration-yellow-400 font-light">
+            Foodify
+          </span>
+        </h1>
+        <p className="text-gray-400 max-w-md mx-auto text-sm sm:text-base">
+          Where every flavor tells a story — crafted with love, passion, and
+          perfection.
+        </p>
+      </div>
 
       {/* Content */}
-      <div className="flex flex-col md:flex-row items-center md:items-end md:gap-20">
+      <div className="relative flex flex-col md:flex-row items-center md:items-start gap-0 md:gap-16">
         {/* Image */}
-        <Image
-          src={brandImg}
-          alt="Homify Brand"
-          className="w-full sm:w-1/2 md:w-1/3 max-w-sm rounded-lg shadow-lg hover:scale-105 transition-transform duration-500"
-        />
+        <div className="w-full sm:w-3/4 md:w-1/2 flex justify-center">
+          <div className="relative group">
+            <Image
+              src={brandImg}
+              alt="Foodify Restaurant Interior"
+              className="w-full max-w-md rounded-2xl shadow-2xl object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            {/* Glow effect */}
+            <div className="absolute inset-0 rounded-2xl bg-yellow-400/10 opacity-0 group-hover:opacity-100 transition duration-500 blur-2xl"></div>
+          </div>
+        </div>
 
         {/* Text & Stats */}
-        <div className="flex flex-col items-center md:items-start mt-10 md:mt-0">
-          {/* Stats Grid */}
-          <div className="grid grid-cols-2 gap-4 md:gap-6 w-full 2xl:pr-20">
+        <div className="flex flex-col items-center md:items-start mt-6 md:mt-0 max-w-lg">
+          {/* Description */}
+          <p className="leading-relaxed text-gray-300 text-sm sm:text-base mb-4 text-center md:text-left">
+            At <span className="text-yellow-400 font-semibold">Foodify</span>,
+            we blend passion, creativity, and the freshest ingredients to craft
+            dishes that delight every sense. More than just a restaurant, we’re
+            a place where flavors inspire joy, moments turn into memories, and
+            every bite reflects our commitment to excellence and warmth.
+          </p>
+
+          {/* Stats */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 w-full mb-4">
             {[
-              { num: "10+", label: "Years of Excellence" },
-              { num: "12+", label: "Projects Completed" },
-              { num: "20+", label: "Mn. Sq. Ft. Delivered" },
-              { num: "25+", label: "Ongoing Projects" },
+              { num: "50+", label: "Signature Dishes" },
+              { num: "10+", label: "Years of Taste" },
+              { num: "5000+", label: "Happy Customers" },
+              { num: "15+", label: "Expert Chefs" },
             ].map((stat, index) => (
-              <div key={index}>
-                <p className="text-4xl font-semibold text-white">{stat.num}</p>
-                <p className="text-gray-400 text-sm">{stat.label}</p>
+              <div
+                key={index}
+                className="text-center md:text-left hover:scale-105 transition-transform duration-300"
+              >
+                <p className="text-3xl sm:text-4xl font-semibold text-yellow-400">
+                  {stat.num}
+                </p>
+                <p className="text-gray-400 text-sm sm:text-base">
+                  {stat.label}
+                </p>
               </div>
             ))}
           </div>
 
-          {/* Description */}
-          <p className="my-4 max-w-lg leading-relaxed text-center md:text-left text-gray-300 text-sm sm:text-base">
-            Homify is redefining modern living with thoughtfully designed homes
-            that combine elegance, comfort, and smart innovation. We transform
-            every space into a dream home through exceptional design and
-            craftsmanship — setting new benchmarks for contemporary living.
-          </p>
-
           {/* Button */}
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-7 py-2 rounded-full font-medium text-sm transition-all duration-300 shadow-lg hover:shadow-blue-500/30">
-            Learn More
-          </button>
+          <a
+            href="#menu"
+            className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-8 py-3 rounded-full text-sm transition-all duration-300 shadow-md hover:shadow-yellow-400/30"
+          >
+            Explore Our Menu
+          </a>
         </div>
       </div>
     </section>
