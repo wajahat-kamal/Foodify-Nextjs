@@ -84,7 +84,7 @@ const MenuTestimonials: React.FC = () => {
       className="bg-[#0B111E] text-white py-20 px-6 md:px-20 lg:px-32 overflow-hidden"
     >
       {/* Heading */}
-      <div className="text-center mb-8">
+      <div className="text-center mb-2">
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">
           What Our <span className="text-yellow-400">Customers Say</span>
         </h1>
@@ -94,7 +94,7 @@ const MenuTestimonials: React.FC = () => {
       </div>
 
       {/* Controller Header */}
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex justify-between items-center mb-2">
         <h2 className="text-xl sm:text-2xl font-semibold text-white">
           Customer Reviews
         </h2>

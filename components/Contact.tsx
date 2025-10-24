@@ -2,18 +2,17 @@
 
 import React, { useState } from "react";
 import { toast } from "react-toastify";
+import { Phone, Mail, MapPin, Send } from "lucide-react";
 
 const Contact: React.FC = () => {
   const [result, setResult] = useState<string>("");
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setResult("Sending....");
+    setResult("Sending...");
 
     const form = event.currentTarget;
     const formData = new FormData(form);
-
-    // ✅ Use Next.js environment variable instead of Vite syntax
     formData.append("access_key", process.env.NEXT_PUBLIC_WEB3_ACCESS_KEY || "");
 
     try {
@@ -25,88 +24,98 @@ const Contact: React.FC = () => {
       const data = await response.json();
 
       if (data.success) {
+        toast.success("Your message has been sent! 🍽️");
         setResult("");
-        toast.success("Message Submitted Successfully");
         form.reset();
       } else {
-        console.error("Error", data);
-        setResult("");
         toast.error(data.message || "Something went wrong!");
+        setResult("");
       }
     } catch (error) {
-      console.error("Fetch error:", error);
-      setResult("");
+      console.error("Error:", error);
       toast.error("Network error! Please try again.");
+      setResult("");
     }
   };
 
   return (
     <section
       id="contact"
-      className="relative text-center py-16 pt-20 px-6 lg:px-32 text-white overflow-hidden"
+      className="relative bg-[#0B111E] text-white py-20 px-6 md:px-16 lg:px-24 overflow-hidden"
     >
-      {/* Glow Effect */}
-      <div className="absolute inset-0 pointer-events-none"></div>
+      {/* Background glow */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0B111E] opacity-70 pointer-events-none" />
 
-      {/* Heading */}
-      <div className="relative mb-8">
-        <h1 className="text-3xl sm:text-4xl font-bold mb-3 tracking-tight">
-          Contact{" "}
-          <span className="text-primary font-light underline underline-offset-4 decoration-2">
-            With Us
-          </span>
+      {/* Header */}
+      <div className="text-center mb-6 relative">
+        <h1 className="text-3xl sm:text-4xl font-bold mb-3">
+          Get In <span className="text-yellow-400">Touch</span>
         </h1>
-        <p className="text-gray-400 max-w-md mx-auto text-sm sm:text-base">
-          Ready to make a move? Let’s build your dream home together.
+        <p className="text-gray-400 max-w-xl mx-auto text-sm sm:text-base">
+          Have a craving, question, or want to book a table? Our team is here to make your dining experience unforgettable.
         </p>
+      </div>
+
+      {/* Contact Info */}
+      <div className="flex flex-wrap justify-center gap-6 mb-4 text-gray-300">
+        <div className="flex items-center gap-3 bg-[#101827]/40 border border-white/10 px-5 py-3 rounded-xl backdrop-blur-md">
+          <Phone className="text-yellow-400" />
+          <span>+92 300 1234567</span>
+        </div>
+        <div className="flex items-center gap-3 bg-[#101827]/40 border border-white/10 px-5 py-3 rounded-xl backdrop-blur-md">
+          <Mail className="text-yellow-400" />
+          <span>hello@restaurant.com</span>
+        </div>
+        <div className="flex items-center gap-3 bg-[#101827]/40 border border-white/10 px-5 py-3 rounded-xl backdrop-blur-md">
+          <MapPin className="text-yellow-400" />
+          <span>Main Street, Karachi, Pakistan</span>
+        </div>
       </div>
 
       {/* Contact Form */}
       <form
         onSubmit={onSubmit}
-        className="relative max-w-2xl mx-auto text-gray-300 bg-[#101827]/40 border border-white/10 backdrop-blur-md p-4 sm:p-6 rounded-2xl shadow-lg"
+        className="relative max-w-2xl mx-auto text-gray-300 bg-[#101827]/40 border border-white/10 backdrop-blur-md p-6 pb-4 rounded-2xl shadow-lg"
       >
-        {/* Name + Email */}
-        <div className="flex flex-wrap gap-4 mb-4">
+        <div className="flex flex-wrap gap-4 mb-2">
           <div className="w-full md:w-[48%] text-left">
-            <label className="text-sm font-medium">Your Name</label>
+            <label className="text-sm font-medium">Full Name</label>
             <input
               type="text"
               name="Name"
               placeholder="John Doe"
               required
-              className="w-full border border-gray-700 bg-[#0d1320] rounded-lg py-3 px-4 mt-2 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-transparent transition-all duration-300"
+              className="w-full border border-gray-700 bg-[#0d1320] rounded-lg py-3 px-4 mt-2 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-400/60 focus:border-transparent transition-all duration-300"
             />
           </div>
 
           <div className="w-full md:w-[48%] text-left">
-            <label className="text-sm font-medium">Your Email</label>
+            <label className="text-sm font-medium">Email</label>
             <input
               type="email"
               name="Email"
               placeholder="john@example.com"
               required
-              className="w-full border border-gray-700 bg-[#0d1320] rounded-lg py-3 px-4 mt-2 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-transparent transition-all duration-300"
+              className="w-full border border-gray-700 bg-[#0d1320] rounded-lg py-3 px-4 mt-2 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-400/60 focus:border-transparent transition-all duration-300"
             />
           </div>
         </div>
 
-        {/* Message */}
-        <div className="text-left mb-4">
+        <div className="text-left mb-2">
           <label className="text-sm font-medium">Message</label>
           <textarea
             name="Message"
-            placeholder="Write your message..."
+            placeholder="Tell us what you’d like to order or ask..."
             required
-            className="w-full border border-gray-700 bg-[#0d1320] rounded-lg py-3 px-4 mt-2 h-48 resize-none text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-transparent transition-all duration-300"
+            className="w-full border border-gray-700 bg-[#0d1320] rounded-lg py-3 px-4 mt-2 h-44 resize-none text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-400/60 focus:border-transparent transition-all duration-300"
           ></textarea>
         </div>
 
-        {/* Submit Button */}
         <button
           type="submit"
-          className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white font-semibold py-3 px-12 rounded-lg transition-all duration-300 shadow-md hover:shadow-primary/30"
+          className="flex items-center justify-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-yellow-400/40 w-full sm:w-auto mx-auto"
         >
+          <Send className={`${result ? "animate-pulse" : ""}`} />
           {result ? result : "Send Message"}
         </button>
       </form>
