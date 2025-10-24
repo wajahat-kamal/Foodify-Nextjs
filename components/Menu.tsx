@@ -9,7 +9,7 @@ const menuItems = [
     category: "Main Course",
     price: "$18",
     image:
-      "https://images.unsplash.com/photo-1606755962773-d324e0a130d7?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=80",
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const menuItems = [
     category: "Pasta & Italian",
     price: "$14",
     image:
-      "https://images.unsplash.com/photo-1605472560916-28c9b19b00f5?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=80",
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ const menuItems = [
     category: "Fast Food",
     price: "$16",
     image:
-      "https://images.unsplash.com/photo-1600628422019-90e9dfdc01ae?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=80",
   },
   {
     id: 5,
@@ -41,7 +41,7 @@ const menuItems = [
     category: "Main Course",
     price: "$22",
     image:
-      "https://images.unsplash.com/photo-1579888533509-8b1b3a6d6c85?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=80",
   },
   {
     id: 6,
@@ -49,7 +49,7 @@ const menuItems = [
     category: "Desserts",
     price: "$10",
     image:
-      "https://images.unsplash.com/photo-1606312619070-d0e5647ef8a4?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=80",
   },
 ];
 
@@ -112,8 +112,8 @@ const Menu = () => {
                 key={item.id}
                 className="border-t border-gray-800 hover:bg-yellow-400/10 transition-all duration-300"
               >
-                <td className="py-4 px-6">
-                  <div className="relative w-16 h-16 rounded-lg overflow-hidden shadow-sm">
+                <td className="py-3 px-6">
+                  <div className="relative w-22 h-16 rounded-lg overflow-hidden shadow-sm">
                     <Image
                       src={item.image}
                       alt={item.name}
@@ -127,7 +127,9 @@ const Menu = () => {
                     <span className="text-white text-base sm:text-lg font-semibold">
                       {item.name}
                     </span>
-                    <span className="text-gray-400 text-sm">{item.category}</span>
+                    <span className="text-gray-400 text-sm">
+                      {item.category}
+                    </span>
                   </div>
                 </td>
                 <td className="py-4 px-4 text-yellow-400 font-semibold text-base">
