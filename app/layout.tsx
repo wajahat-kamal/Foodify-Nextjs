@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
-import { Provider } from "react-redux";
-import { store } from "../redux/store"; // ✅ adjust path if needed
+import Providers from "./Providers"; // ✅ use the wrapper
 
-// Load Google Fonts
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -30,9 +28,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${outfit.variable} antialiased bg-[#0B111E] text-white`}
       >
-        <Provider store={store}>
-          {children}
-        </Provider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
