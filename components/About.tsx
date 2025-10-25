@@ -15,7 +15,7 @@ const About = () => {
       <div className="relative text-center mb-12">
         <h1 className="text-3xl sm:text-4xl font-bold mb-3">
           About{" "}
-          <span className="underline underline-offset-4 decoration-yellow-400 font-light">
+          <span className="underline underline-offset-4 decoration-primary font-light">
             Foodify
           </span>
         </h1>
@@ -44,7 +44,7 @@ const About = () => {
         <div className="flex flex-col items-center md:items-start mt-6 md:mt-0 max-w-lg">
           {/* Description */}
           <p className="leading-relaxed text-gray-300 text-sm sm:text-base mb-4 text-center md:text-left">
-            At <span className="text-yellow-400 font-semibold">Foodify</span>,
+            At <span className="text-primary font-semibold">Foodify</span>,
             we blend passion, creativity, and the freshest ingredients to craft
             dishes that delight every sense. More than just a restaurant, we’re
             a place where flavors inspire joy, moments turn into memories, and
@@ -63,7 +63,7 @@ const About = () => {
                 key={index}
                 className="text-center md:text-left hover:scale-105 transition-transform duration-300"
               >
-                <p className="text-3xl sm:text-4xl font-semibold text-yellow-400">
+                <p className="text-3xl sm:text-4xl font-semibold text-primary">
                   {stat.num}
                 </p>
                 <p className="text-gray-400 text-sm sm:text-base">
@@ -76,7 +76,7 @@ const About = () => {
           {/* Button */}
           <a
             href="#menu"
-            className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-8 py-3 rounded-full text-sm transition-all duration-300 shadow-md hover:shadow-yellow-400/30"
+            className="bg-primary/95 hover:bg-primary text-black font-semibold px-8 py-3 rounded-full text-sm transition-all duration-300 shadow-md hover:shadow-yellow-400/30"
           >
             Explore Our Menu
           </a>

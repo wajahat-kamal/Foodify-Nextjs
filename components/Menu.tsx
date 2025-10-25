@@ -77,7 +77,7 @@ const Menu = () => {
       {/* Title */}
       <div className="text-center mb-6">
         <h1 className="text-3xl sm:text-4xl font-bold mb-3">
-          Our <span className="text-yellow-400">Menu</span>
+          Our <span className="text-primary">Menu</span>
         </h1>
         <p className="text-gray-400 max-w-lg mx-auto text-sm sm:text-base">
           Discover our chef’s special creations — where taste meets perfection
