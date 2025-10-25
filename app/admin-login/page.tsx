@@ -33,7 +33,7 @@ const AdminLogin: React.FC = () => {
       if (data.success) {
         dispatch(setToken(data.token)); // ✅ Redux handles token + localStorage
         toast.success(data.message);
-        router.push("/admin");
+        router.push("/dashboard");
       } else {
         toast.error(data.message || "Invalid credentials");
       }
@@ -75,7 +75,7 @@ const AdminLogin: React.FC = () => {
               <input
                 type="email"
                 name="email"
-                placeholder="admin@foodify.com"
+                placeholder="Enter email"
                 value={formData.email}
                 onChange={handleChange}
                 required
