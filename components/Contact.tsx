@@ -79,9 +79,9 @@ const Contact: React.FC = () => {
       {/* Contact Form */}
       <form
         onSubmit={onSubmit}
-        className="relative max-w-lg sm:max-w-2xl mx-auto text-gray-300 bg-[#101827]/40 border border-white/10 backdrop-blur-md p-4 md:p-6 md:pb-4 rounded-2xl shadow-lg"
+        className="relative max-w-lg sm:max-w-2xl mx-auto text-gray-300 bg-[#101827]/40 border border-white/10 backdrop-blur-md p-4 md:p-5 md:pb-3 rounded-2xl shadow-lg"
       >
-        <div className="flex flex-wrap gap-3 sm:gap-4 mb-3">
+        <div className="flex flex-wrap gap-3 sm:gap-4 mb-2">
           <div className="w-full sm:w-[48%] text-left">
             <label className="text-xs sm:text-sm font-medium">Full Name</label>
             <input
