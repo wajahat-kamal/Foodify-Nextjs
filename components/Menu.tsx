@@ -91,12 +91,12 @@ const Menu = () => {
           <button
             key={category}
             onClick={() => setSelectedCategory(category)}
-            className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 border backdrop-blur-sm
-              ${
-                selectedCategory === category
-                  ? "bg-yellow-400 text-black border-yellow-400 shadow-md"
-                  : "border-gray-700 text-gray-300 hover:bg-yellow-400/10 hover:text-yellow-400"
-              }`}
+            className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-[10px] sm:text-sm font-medium transition-all duration-300 border backdrop-blur-sm
+      ${
+        selectedCategory === category
+          ? "bg-yellow-400 text-black border-yellow-400 shadow-md"
+          : "border-gray-700 text-gray-300 hover:bg-yellow-400/10 hover:text-yellow-400"
+      }`}
           >
             {category}
           </button>
@@ -104,17 +104,17 @@ const Menu = () => {
       </div>
 
       {/* Menu Table */}
-      <div className="overflow-x-auto flex justify-center">
+      <div className="overflow-auto flex justify-center">
         <table className="w-[90%] md:w-[70%] border-collapse border border-gray-800 rounded-2xl shadow-lg overflow-hidden bg-[#141B29]/50 backdrop-blur-sm">
           <tbody>
             {filteredMenu.map((item) => (
               <tr
                 key={item.id}
-                className="border-t border-gray-800 hover:bg-yellow-400/10 transition-all duration-300 text-xs sm:text-sm md:text-base"
+                className="border-t border-gray-800 hover:bg-yellow-400/10 transition-all duration-300 text-[10px] sm:text-xs md:text-sm"
               >
                 {/* Image */}
-                <td className="py-2 px-2 sm:py-3 sm:px-4">
-                  <div className="relative w-16 h-12 sm:w-20 sm:h-14 md:w-24 md:h-16 rounded-lg overflow-hidden shadow-sm">
+                <td className="py-1 px-1 sm:py-2 sm:px-2">
+                  <div className="relative w-12 h-10 sm:w-14 sm:h-12 md:w-20 md:h-14 rounded-md overflow-hidden shadow-sm">
                     <Image
                       src={item.image}
                       alt={item.name}
@@ -125,25 +125,25 @@ const Menu = () => {
                 </td>
 
                 {/* Name & Category */}
-                <td className="py-2 px-2 sm:py-3 sm:px-4 font-medium">
+                <td className="py-1 px-1 sm:py-2 sm:px-2 font-medium">
                   <div className="flex flex-col">
-                    <span className="text-white text-sm sm:text-base md:text-lg font-semibold">
+                    <span className="text-white text-[11px] sm:text-sm font-semibold leading-tight">
                       {item.name}
                     </span>
-                    <span className="text-gray-400 text-xs sm:text-sm">
+                    <span className="text-gray-400 text-[9px] sm:text-xs leading-tight">
                       {item.category}
                     </span>
                   </div>
                 </td>
 
                 {/* Price */}
-                <td className="py-2 px-2 sm:py-3 sm:px-4 text-yellow-400 font-semibold text-sm sm:text-base text-center">
+                <td className="py-1 px-1 sm:py-2 sm:px-2 text-yellow-400 font-semibold text-[11px] sm:text-sm text-center">
                   {item.price}
                 </td>
 
                 {/* Button */}
-                <td className="py-2 px-2 sm:py-3 sm:px-4 text-center">
-                  <button className="bg-yellow-400 text-black px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium hover:bg-yellow-300 hover:scale-105 transition-transform duration-300">
+                <td className="py-1 sm:py-2 px-2 text-center">
+                  <button className="bg-yellow-400 text-black px-2 py-1 rounded-full text-[9px] sm:text-xs font-medium hover:bg-yellow-300 hover:scale-105 transition-transform duration-300">
                     Order
                   </button>
                 </td>
