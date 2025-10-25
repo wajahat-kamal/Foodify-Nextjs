@@ -77,7 +77,7 @@ const Menu = () => {
       {/* Title */}
       <div className="text-center mb-6">
         <h1 className="text-3xl sm:text-4xl font-bold mb-3">
-          Our <span className="text-primary">Menu</span>
+          Our <span className="text-yellow-400">Menu</span>
         </h1>
         <p className="text-gray-400 max-w-lg mx-auto text-sm sm:text-base">
           Discover our chef’s special creations — where taste meets perfection
@@ -94,8 +94,8 @@ const Menu = () => {
             className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-[10px] sm:text-sm font-medium transition-all duration-300 border backdrop-blur-sm
       ${
         selectedCategory === category
-          ? "bg-yellow-400 text-black border-yellow-400 shadow-md"
-          : "border-gray-700 text-gray-300 hover:bg-yellow-400/10 hover:text-yellow-400"
+          ? "bg-primary text-black border-primary shadow-md"
+          : "border-gray-700 text-gray-300 hover:bg-yellow-400/10 hover:text-primary"
       }`}
           >
             {category}
@@ -137,13 +137,13 @@ const Menu = () => {
                 </td>
 
                 {/* Price */}
-                <td className="py-1 px-1 sm:py-2 sm:px-2 text-yellow-400 font-semibold text-[11px] sm:text-sm text-center">
+                <td className="py-1 px-1 sm:py-2 sm:px-2 text-primary font-semibold text-[11px] sm:text-sm text-center">
                   {item.price}
                 </td>
 
                 {/* Button */}
                 <td className="py-1 sm:py-2 px-2 text-center">
-                  <button className="bg-yellow-400 text-black px-2 py-1 rounded-full text-[9px] sm:text-xs font-medium hover:bg-yellow-300 hover:scale-105 transition-transform duration-300">
+                  <button className="bg-primary/95 text-black px-2 py-1 rounded-full text-[9px] sm:text-xs font-medium hover:bg-primary hover:scale-105 transition-transform duration-300">
                     Order
                   </button>
                 </td>
