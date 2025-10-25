@@ -110,10 +110,11 @@ const Menu = () => {
             {filteredMenu.map((item) => (
               <tr
                 key={item.id}
-                className="border-t border-gray-800 hover:bg-yellow-400/10 transition-all duration-300"
+                className="border-t border-gray-800 hover:bg-yellow-400/10 transition-all duration-300 text-xs sm:text-sm md:text-base"
               >
-                <td className="py-3 px-6">
-                  <div className="relative w-22 h-16 rounded-lg overflow-hidden shadow-sm">
+                {/* Image */}
+                <td className="py-2 px-2 sm:py-3 sm:px-4">
+                  <div className="relative w-16 h-12 sm:w-20 sm:h-14 md:w-24 md:h-16 rounded-lg overflow-hidden shadow-sm">
                     <Image
                       src={item.image}
                       alt={item.name}
@@ -122,22 +123,28 @@ const Menu = () => {
                     />
                   </div>
                 </td>
-                <td className="py-4 px-4 font-medium">
+
+                {/* Name & Category */}
+                <td className="py-2 px-2 sm:py-3 sm:px-4 font-medium">
                   <div className="flex flex-col">
-                    <span className="text-white text-base sm:text-lg font-semibold">
+                    <span className="text-white text-sm sm:text-base md:text-lg font-semibold">
                       {item.name}
                     </span>
-                    <span className="text-gray-400 text-sm">
+                    <span className="text-gray-400 text-xs sm:text-sm">
                       {item.category}
                     </span>
                   </div>
                 </td>
-                <td className="py-4 px-4 text-yellow-400 font-semibold text-base">
+
+                {/* Price */}
+                <td className="py-2 px-2 sm:py-3 sm:px-4 text-yellow-400 font-semibold text-sm sm:text-base text-center">
                   {item.price}
                 </td>
-                <td className="py-4 px-4 text-center">
-                  <button className="bg-yellow-400 text-black px-5 py-2 rounded-full text-sm font-medium hover:bg-yellow-300 hover:scale-105 transition-transform duration-300">
-                    Order Now
+
+                {/* Button */}
+                <td className="py-2 px-2 sm:py-3 sm:px-4 text-center">
+                  <button className="bg-yellow-400 text-black px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium hover:bg-yellow-300 hover:scale-105 transition-transform duration-300">
+                    Order
                   </button>
                 </td>
               </tr>

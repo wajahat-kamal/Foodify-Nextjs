@@ -30,9 +30,7 @@ const AdminLogin: React.FC = () => {
       if (data.success) {
         toast.success(data.message);
         localStorage.setItem("token", data.token);
-
-        // ✅ Use router.push instead of window.location.href
-        router.push("/admin/dashboard");
+        router.push("/admin");
       } else {
         toast.error(data.message || "Invalid credentials");
       }

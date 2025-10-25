@@ -78,14 +78,16 @@ export default function Navbar() {
       {/* Overlay */}
       <div
         className={`fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ${
-          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          isOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
         } z-40`}
         onClick={() => setIsOpen(false)}
       />
 
       {/* Mobile Slide Menu */}
       <aside
-        className={`fixed top-0 right-0 h-full w-72 bg-[#0B111E] backdrop-blur-md shadow-2xl transform transition-transform duration-300 ease-in-out z-[60] ${
+        className={`fixed top-0 right-0 h-full w-72 bg-[#0B111E] backdrop-blur-md shadow-2xl transform transition-transform duration-300 ease-in-out z-60 ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -126,13 +128,14 @@ export default function Navbar() {
           </nav>
 
           {/* Mobile Button */}
-          <div className="mt-auto">
-            <button
+          <div className="mb-20">
+            <a
+              href="/login"
               onClick={() => setIsOpen(false)}
               className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-full transition-all duration-300 shadow-md hover:shadow-yellow-400/30"
             >
               Admin Login
-            </button>
+            </a>
           </div>
         </div>
       </aside>
