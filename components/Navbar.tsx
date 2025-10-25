@@ -4,17 +4,26 @@ import React, { useState, useEffect } from "react";
 import { assets } from "@/assets/assets";
 import Image from "next/image";
 import { X } from "lucide-react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setToken } from "@/redux/slices/authSlice";
 
 const NAV_ITEMS = ["Home", "About", "Menu", "Reviews", "Contact"];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const dispatch = useDispatch();
 
-  // ✅ Get auth state from Redux
+  // ✅ Get auth state
   const { isAuthenticated } = useSelector((state: any) => state.auth);
 
+  // ✅ Check localStorage on mount (so refresh keeps you logged in)
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) dispatch(setToken(token));
+  }, [dispatch]);
+
+  // ✅ Scroll effect
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener("scroll", handleScroll);
@@ -98,7 +107,7 @@ export default function Navbar() {
         onClick={() => setIsOpen(false)}
       />
 
-      {/* Mobile Slide Menu */}
+      {/* Mobile Menu */}
       <aside
         className={`fixed top-0 right-0 h-full w-72 bg-[#0B111E] backdrop-blur-md shadow-2xl transform transition-transform duration-300 ease-in-out z-60 ${
           isOpen ? "translate-x-0" : "translate-x-full"
@@ -108,11 +117,7 @@ export default function Navbar() {
           {/* Header */}
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <img
-                src="/logo.svg"
-                alt="Foodify"
-                className="w-8 h-8 object-contain"
-              />
+              <img src="/logo.svg" alt="Foodify" className="w-8 h-8" />
               <h2 className="text-lg font-bold text-yellow-400">FOODIFY</h2>
             </div>
             <button

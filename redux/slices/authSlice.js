@@ -1,29 +1,32 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// 1. Initial state
 const initialState = {
-  token: null,           // store admin token
-  isAuthenticated: false // track if admin is logged in
+  token:
+    typeof window !== "undefined" ? localStorage.getItem("token") || null : null,
+  isAuthenticated:
+    typeof window !== "undefined" ? !!localStorage.getItem("token") : false,
 };
 
-// 2. Create slice
 const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    // Save token when admin logs in
     setToken: (state, action) => {
       state.token = action.payload;
       state.isAuthenticated = true;
+      if (typeof window !== "undefined") {
+        localStorage.setItem("token", action.payload);
+      }
     },
-    // Clear token when admin logs out
     logout: (state) => {
       state.token = null;
       state.isAuthenticated = false;
+      if (typeof window !== "undefined") {
+        localStorage.removeItem("token");
+      }
     },
   },
 });
 
-// 3. Export actions and reducer
 export const { setToken, logout } = authSlice.actions;
 export default authSlice.reducer;
