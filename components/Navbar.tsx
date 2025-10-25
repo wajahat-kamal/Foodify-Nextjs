@@ -18,10 +18,11 @@ export default function Navbar() {
   const { isAuthenticated } = useSelector((state: any) => state.auth);
 
   // ✅ Check localStorage on mount (so refresh keeps you logged in)
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) dispatch(setToken(token));
-  }, [dispatch]);
+useEffect(() => {
+ const token = localStorage.getItem('token')
+ if (token) dispatch(setToken(token))
+}, [dispatch])
+
 
   // ✅ Scroll effect
   useEffect(() => {
