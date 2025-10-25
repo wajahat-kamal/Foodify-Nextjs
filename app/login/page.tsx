@@ -4,12 +4,15 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { Lock, Mail } from "lucide-react";
+import { useDispatch } from "react-redux";
+import { setToken } from "../../redux/slices/authSlice";
 import axios from "axios";
 
 const AdminLogin: React.FC = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
   const router = useRouter(); // ✅ Initialize router
+  const dispatch = useDispatch();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -17,19 +20,19 @@ const AdminLogin: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+  
     if (!formData.email || !formData.password) {
       toast.error("Please fill in all fields");
       return;
     }
-
+  
     try {
       setLoading(true);
       const { data } = await axios.post("/api/login", formData);
-
+  
       if (data.success) {
+        dispatch(setToken(data.token)); // ✅ Redux handles token + localStorage
         toast.success(data.message);
-        localStorage.setItem("token", data.token);
         router.push("/admin");
       } else {
         toast.error(data.message || "Invalid credentials");
@@ -41,7 +44,7 @@ const AdminLogin: React.FC = () => {
       setLoading(false);
     }
   };
-
+  
   return (
     <section
       className="relative w-full h-screen flex items-center justify-center bg-cover bg-center"

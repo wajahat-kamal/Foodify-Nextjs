@@ -4,12 +4,16 @@ import React, { useState, useEffect } from "react";
 import { assets } from "@/assets/assets";
 import Image from "next/image";
 import { X } from "lucide-react";
+import { useSelector } from "react-redux";
 
 const NAV_ITEMS = ["Home", "About", "Menu", "Reviews", "Contact"];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  // ✅ Get auth state from Redux
+  const { isAuthenticated } = useSelector((state: any) => state.auth);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 30);
@@ -55,12 +59,21 @@ export default function Navbar() {
 
         {/* Desktop Button */}
         <div className="hidden md:block">
-          <a
-            href="/login"
-            className="bg-yellow-400 text-black font-semibold px-5 py-1.5 lg:px-6 lg:py-2 rounded-full text-sm lg:text-base transition-all duration-300 hover:bg-yellow-500 shadow-md hover:shadow-yellow-500/30"
-          >
-            Admin Login
-          </a>
+          {isAuthenticated ? (
+            <a
+              href="/admin"
+              className="bg-yellow-400 text-black font-semibold px-5 py-1.5 lg:px-6 lg:py-2 rounded-full text-sm lg:text-base transition-all duration-300 hover:bg-yellow-500 shadow-md hover:shadow-yellow-500/30"
+            >
+              Dashboard
+            </a>
+          ) : (
+            <a
+              href="/admin-login"
+              className="bg-yellow-400 text-black font-semibold px-5 py-1.5 lg:px-6 lg:py-2 rounded-full text-sm lg:text-base transition-all duration-300 hover:bg-yellow-500 shadow-md hover:shadow-yellow-500/30"
+            >
+              Admin Login
+            </a>
+          )}
         </div>
 
         {/* Mobile Menu Icon */}
@@ -129,13 +142,23 @@ export default function Navbar() {
 
           {/* Mobile Button */}
           <div className="mb-20">
-            <a
-              href="/login"
-              onClick={() => setIsOpen(false)}
-              className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-full transition-all duration-300 shadow-md hover:shadow-yellow-400/30"
-            >
-              Admin Login
-            </a>
+            {isAuthenticated ? (
+              <a
+                href="/admin"
+                onClick={() => setIsOpen(false)}
+                className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-full transition-all duration-300 shadow-md hover:shadow-yellow-400/30"
+              >
+                Dashboard
+              </a>
+            ) : (
+              <a
+                href="/admin-login"
+                onClick={() => setIsOpen(false)}
+                className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-full transition-all duration-300 shadow-md hover:shadow-yellow-400/30"
+              >
+                Admin Login
+              </a>
+            )}
           </div>
         </div>
       </aside>

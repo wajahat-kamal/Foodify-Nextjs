@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
+import { Provider } from "react-redux";
+import { store } from "../redux/store"; // ✅ adjust path if needed
 
-// ✅ Load Google Fonts (Inter + Outfit)
+// Load Google Fonts
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -22,15 +24,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body
         className={`${inter.variable} ${outfit.variable} antialiased bg-[#0B111E] text-white`}
       >
-        {children}
+        <Provider store={store}>
+          {children}
+        </Provider>
       </body>
     </html>
   );
