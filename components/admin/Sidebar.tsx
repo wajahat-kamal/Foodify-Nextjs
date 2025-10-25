@@ -38,7 +38,7 @@ export default function Sidebar() {
                 px-3 py-2 md:px-4 md:py-3 rounded-lg text-sm md:text-base
                 font-medium transition-all duration-200 ${
                   isActive
-                    ? "bg-blue-600/20 text-blue-400 border border-blue-700"
+                    ? "bg-blue-600/20 text-primary border border-primary"
                     : "text-gray-400 hover:bg-[#141B2E] hover:text-white"
                 }`}
             >

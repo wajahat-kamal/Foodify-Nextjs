@@ -47,7 +47,7 @@ export default function Navbar() {
             alt="Foodify"
             className="w-8 h-8 md:w-7 md:h-7 lg:w-9 lg:h-9 object-contain"
           />
-          <h1 className="text-xl md:text-lg lg:text-2xl font-bold text-yellow-400 tracking-tight">
+          <h1 className="text-xl md:text-lg lg:text-2xl font-bold text-primary tracking-tight">
             FOODIFY
           </h1>
         </div>
@@ -58,7 +58,7 @@ export default function Navbar() {
             <li key={item}>
               <a
                 href={`#${item.toLowerCase()}`}
-                className="relative transition-all duration-300 hover:text-yellow-400 after:content-[''] after:block after:h-[2px] after:w-0 hover:after:w-full after:bg-yellow-400 after:transition-all after:duration-300 after:mt-1"
+                className="relative transition-all duration-300 hover:text-primary after:content-[''] after:block after:h-[2px] after:w-0 hover:after:w-full after:bg-primary after:transition-all after:duration-300 after:mt-1"
               >
                 {item}
               </a>
@@ -70,15 +70,15 @@ export default function Navbar() {
         <div className="hidden md:block">
           {isAuthenticated ? (
             <a
-              href="/admin"
-              className="bg-yellow-400 text-black font-semibold px-5 py-1.5 lg:px-6 lg:py-2 rounded-full text-sm lg:text-base transition-all duration-300 hover:bg-yellow-500 shadow-md hover:shadow-yellow-500/30"
+              href="/dashboard"
+              className="bg-primary/95 text-black font-semibold px-5 py-1.5 lg:px-6 lg:py-2 rounded-full text-sm lg:text-base transition-all duration-300 hover:bg-primary shadow-md hover:shadow-primary/80"
             >
               Dashboard
             </a>
           ) : (
             <a
               href="/admin-login"
-              className="bg-yellow-400 text-black font-semibold px-5 py-1.5 lg:px-6 lg:py-2 rounded-full text-sm lg:text-base transition-all duration-300 hover:bg-yellow-500 shadow-md hover:shadow-yellow-500/30"
+              className="bg-primary/95 text-black font-semibold px-5 py-1.5 lg:px-6 lg:py-2 rounded-full text-sm lg:text-base transition-all duration-300 hover:bg-primary shadow-md hover:shadow-primary/80"
             >
               Admin Login
             </a>
