@@ -36,7 +36,7 @@ export default function DashboardNavbar() {
       <button
         onClick={handleLogout}
         className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 
-        text-white font-medium md:font-semibold px-3 md:px-5 py-1 md:py-2 rounded-full shadow-md hover:shadow-blue-500/30 
+        text-white font-medium md:font-semibold px-3 md:px-5 py-1.5 md:py-2 rounded-full shadow-md hover:shadow-blue-500/30 
         transition-all duration-300 active:scale-95"
       >
         <LogOut className="w-5 h-5" />
