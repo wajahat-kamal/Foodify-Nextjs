@@ -6,7 +6,7 @@ const menuItems = [
   {
     id: 1,
     name: "Grilled Chicken Steak",
-    category: "Main Course",
+    category: "Desi",
     price: "$18",
     image:
       "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=80",
@@ -38,7 +38,8 @@ const menuItems = [
   {
     id: 5,
     name: "Sushi Platter",
-    category: "Main Course",
+    category: "Desi",
+
     price: "$22",
     image:
       "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=80",
@@ -53,13 +54,7 @@ const menuItems = [
   },
 ];
 
-const categories = [
-  "All",
-  "Main Course",
-  "Fast Food",
-  "Pasta & Italian",
-  "Desserts",
-];
+const categories = ["All", "Desi", "Fast Food", "Pasta & Italian", "Desserts"];
 
 const Menu = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -104,53 +99,110 @@ const Menu = () => {
       </div>
 
       {/* Menu Table */}
-      <div className="overflow-auto flex justify-center">
-        <table className="w-[90%] md:w-[70%] border-collapse border border-gray-800 rounded-2xl shadow-lg overflow-hidden bg-[#141B29]/50 backdrop-blur-sm">
-          <tbody>
-            {filteredMenu.map((item) => (
-              <tr
-                key={item.id}
-                className="border-t border-gray-800 hover:bg-yellow-400/10 transition-all duration-300 text-[10px] sm:text-xs md:text-sm"
-              >
-                {/* Image */}
-                <td className="py-1 px-1 sm:py-2 sm:px-2">
-                  <div className="relative w-12 h-10 sm:w-14 sm:h-12 md:w-20 md:h-14 rounded-md overflow-hidden shadow-sm">
-                    <Image
-                      src={item.image}
-                      alt={item.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </td>
+      <div className="grid grid-cols-1 md:grid-cols-2 md:gap-0 gap-0 justify-center">
+        {/* Left Menu */}
+        <div className="overflow-auto flex justify-center md:justify-end">
+          <table className="w-full md:w-[90%] border-collapse border border-gray-800 rounded-none md:rounded-l-2xl shadow-lg overflow-hidden bg-[#141B29]/50 backdrop-blur-sm">
+            <tbody>
+              {filteredMenu
+                .filter((_, index) => index % 2 === 0)
+                .map((item) => (
+                  <tr
+                    key={item.id}
+                    className="border-t border-gray-800 hover:bg-yellow-400/10 transition-all duration-300 text-[10px] sm:text-xs md:text-sm"
+                  >
+                    {/* Image */}
+                    <td className="py-2 px-2">
+                      <div className="relative w-12 h-10 sm:w-16 sm:h-12 md:w-20 md:h-14 rounded-md overflow-hidden shadow-sm">
+                        <Image
+                          src={item.image}
+                          alt={item.name}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    </td>
 
-                {/* Name & Category */}
-                <td className="py-1 px-1 sm:py-2 sm:px-2 font-medium">
-                  <div className="flex flex-col">
-                    <span className="text-white text-[11px] sm:text-sm font-semibold leading-tight">
-                      {item.name}
-                    </span>
-                    <span className="text-gray-400 text-[9px] sm:text-xs leading-tight">
-                      {item.category}
-                    </span>
-                  </div>
-                </td>
+                    {/* Name & Category */}
+                    <td className="py-2 px-2 font-medium">
+                      <div className="flex flex-col">
+                        <span className="text-white text-[11px] sm:text-sm font-semibold leading-tight">
+                          {item.name}
+                        </span>
+                        <span className="text-gray-400 text-[9px] sm:text-xs leading-tight">
+                          {item.category}
+                        </span>
+                      </div>
+                    </td>
 
-                {/* Price */}
-                <td className="py-1 px-1 sm:py-2 sm:px-2 text-primary font-semibold text-[11px] sm:text-sm text-center">
-                  {item.price}
-                </td>
+                    {/* Price */}
+                    <td className="py-2 px-2 text-yellow-400 font-semibold text-[11px] sm:text-sm text-center">
+                      Rs. {item.price}
+                    </td>
 
-                {/* Button */}
-                <td className="py-1 sm:py-2 px-2 text-center">
-                  <button className="bg-primary/95 text-black px-2 py-1 rounded-full text-[9px] sm:text-xs font-medium hover:bg-primary hover:scale-105 transition-transform duration-300">
-                    Order
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                    {/* Button */}
+                    <td className="py-2 px-2 text-center">
+                      <button className="bg-yellow-400/90 text-black px-3 py-1 rounded-full text-[9px] sm:text-xs font-medium hover:bg-yellow-400 hover:scale-105 transition-transform duration-300">
+                        Order
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </div>
+
+        {/* Right Menu */}
+        <div className="overflow-auto flex justify-center md:justify-start">
+          <table className="w-full md:w-[90%] border-collapse border border-gray-800 rounded-none md:rounded-r-2xl shadow-lg overflow-hidden bg-[#141B29]/50 backdrop-blur-sm">
+            <tbody>
+              {filteredMenu
+                .filter((_, index) => index % 2 !== 0)
+                .map((item) => (
+                  <tr
+                    key={item.id}
+                    className="border-t border-gray-800 hover:bg-yellow-400/10 transition-all duration-300 text-[10px] sm:text-xs md:text-sm"
+                  >
+                    {/* Image */}
+                    <td className="py-2 px-2">
+                      <div className="relative w-12 h-10 sm:w-16 sm:h-12 md:w-20 md:h-14 rounded-md overflow-hidden shadow-sm">
+                        <Image
+                          src={item.image}
+                          alt={item.name}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    </td>
+
+                    {/* Name & Category */}
+                    <td className="py-2 px-2 font-medium">
+                      <div className="flex flex-col">
+                        <span className="text-white text-[11px] sm:text-sm font-semibold leading-tight">
+                          {item.name}
+                        </span>
+                        <span className="text-gray-400 text-[9px] sm:text-xs leading-tight">
+                          {item.category}
+                        </span>
+                      </div>
+                    </td>
+
+                    {/* Price */}
+                    <td className="py-2 px-2 text-yellow-400 font-semibold text-[11px] sm:text-sm text-center">
+                      Rs. {item.price}
+                    </td>
+
+                    {/* Button */}
+                    <td className="py-2 px-2 text-center">
+                      <button className="bg-yellow-400/90 text-black px-3 py-1 rounded-full text-[9px] sm:text-xs font-medium hover:bg-yellow-400 hover:scale-105 transition-transform duration-300">
+                        Order
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
   );
