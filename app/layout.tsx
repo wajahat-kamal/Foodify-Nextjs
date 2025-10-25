@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
-import Providers from "./Providers"; // ✅ use the wrapper
+import Providers from "./Providers";
+import { Toaster } from "react-hot-toast"; // ✅ Import Toaster
 
 const inter = Inter({
   subsets: ["latin"],
@@ -28,7 +29,27 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${outfit.variable} antialiased bg-[#0B111E] text-white`}
       >
-        <Providers>{children}</Providers>
+        <Providers>
+          {children}
+          {/* ✅ React Hot Toast */}
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              duration: 3000,
+              style: {
+                background: "#141B2E",
+                color: "#fff",
+                border: "1px solid #222",
+              },
+              success: {
+                iconTheme: { primary: "#22c55e", secondary: "#0B111E" },
+              },
+              error: {
+                iconTheme: { primary: "#ef4444", secondary: "#0B111E" },
+              },
+            }}
+          />
+        </Providers>
       </body>
     </html>
   );

@@ -2,6 +2,7 @@
 import React from "react";
 
 export default function AddFood() {
+  
   return (
     <div className="space-y-4 sm:space-y-6 p-3 sm:p-6">
       {/* Title */}

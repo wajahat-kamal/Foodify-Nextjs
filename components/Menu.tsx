@@ -1,8 +1,9 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import MenuItem from "./MenuItem";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 // const menuItems = [
 //   {
@@ -59,21 +60,26 @@ import axios from "axios";
 const categories = ["All", "Desi", "Fast Food", "Pasta & Italian", "Desserts"];
 
 const Menu = () => {
-
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [menuItems, setMenuItems] = useState([])
+  const [menuItems, setMenuItems] = useState([]);
 
   const fetchMenuItems = async () => {
     try {
-      const {data} = await axios.get('/api/menu')
-      if (data.success) {
-        setMenuItems(data.menus)
-      }
-    } catch (error) {
-      
-    }
-  }
+      const { data } = await axios.get("/api/menu");
 
+      if (data.success) {
+        setMenuItems(data.menus);
+      } else {
+        toast.error("Failed to load menu items");
+      }
+    } catch (err) {
+      console.error("Error fetching menu items:", err);
+    }
+  };
+
+  useEffect(() => {
+    fetchMenuItems();
+  }, []);
 
   const filteredMenu =
     selectedCategory === "All"
