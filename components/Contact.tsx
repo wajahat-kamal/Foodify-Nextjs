@@ -52,7 +52,7 @@ const Contact: React.FC = () => {
       {/* Header */}
       <div className="text-center mb-6 relative">
         <h1 className="text-2xl sm:text-4xl font-bold mb-2">
-          Get In <span className="text-yellow-400">Touch</span>
+          Get In <span className="text-primary">Touch</span>
         </h1>
         <p className="text-gray-400 max-w-md sm:max-w-xl mx-auto text-xs sm:text-base leading-relaxed">
           Have a craving, question, or want to book a table? Our team is here to
@@ -63,15 +63,15 @@ const Contact: React.FC = () => {
       {/* Contact Info */}
       <div className="flex flex-wrap justify-center gap-3 sm:gap-6 mb-6 text-gray-300 text-sm sm:text-base">
         <div className="flex items-center gap-2 sm:gap-3 bg-[#101827]/40 border border-white/10 px-4 sm:px-5 py-2 sm:py-3 rounded-xl backdrop-blur-md">
-          <Phone className="text-yellow-400 w-4 h-4 sm:w-5 sm:h-5" />
+          <Phone className="text-primary w-4 h-4 sm:w-5 sm:h-5" />
           <span>+92 300 1234567</span>
         </div>
         <div className="flex items-center gap-2 sm:gap-3 bg-[#101827]/40 border border-white/10 px-4 sm:px-5 py-2 sm:py-3 rounded-xl backdrop-blur-md">
-          <Mail className="text-yellow-400 w-4 h-4 sm:w-5 sm:h-5" />
+          <Mail className="text-primary w-4 h-4 sm:w-5 sm:h-5" />
           <span>hello@restaurant.com</span>
         </div>
         <div className="flex items-center gap-2 sm:gap-3 bg-[#101827]/40 border border-white/10 px-4 sm:px-5 py-2 sm:py-3 rounded-xl backdrop-blur-md">
-          <MapPin className="text-yellow-400 w-4 h-4 sm:w-5 sm:h-5" />
+          <MapPin className="text-primary w-4 h-4 sm:w-5 sm:h-5" />
           <span>Main Street, Karachi</span>
         </div>
       </div>
@@ -79,7 +79,7 @@ const Contact: React.FC = () => {
       {/* Contact Form */}
       <form
         onSubmit={onSubmit}
-        className="relative max-w-lg sm:max-w-2xl mx-auto text-gray-300 bg-[#101827]/40 border border-white/10 backdrop-blur-md p-4 sm:p-6 rounded-2xl shadow-lg"
+        className="relative max-w-lg sm:max-w-2xl mx-auto text-gray-300 bg-[#101827]/40 border border-white/10 backdrop-blur-md p-4 md:p-6 md:pb-4 rounded-2xl shadow-lg"
       >
         <div className="flex flex-wrap gap-3 sm:gap-4 mb-3">
           <div className="w-full sm:w-[48%] text-left">
@@ -105,7 +105,7 @@ const Contact: React.FC = () => {
           </div>
         </div>
 
-        <div className="text-left mb-3">
+        <div className="text-left mb-2">
           <label className="text-xs sm:text-sm font-medium">Message</label>
           <textarea
             name="Message"
@@ -117,7 +117,7 @@ const Contact: React.FC = () => {
 
         <button
           type="submit"
-          className="flex items-center justify-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2.5 sm:py-3 px-6 sm:px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-yellow-400/40 w-full sm:w-auto mx-auto text-sm sm:text-base"
+          className="flex items-center justify-center gap-2 bg-primary/95 hover:bg-primary text-black font-semibold py-2.5 sm:py-3 px-6 sm:px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-yellow-400/40 w-full sm:w-auto mx-auto text-sm sm:text-base"
         >
           <Send
             className={`${result ? "animate-pulse" : ""} w-4 h-4 sm:w-5 sm:h-5`}
