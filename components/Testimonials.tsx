@@ -84,37 +84,37 @@ const MenuTestimonials: React.FC = () => {
       className="bg-[#0B111E] text-white py-20 px-6 md:px-20 lg:px-32 overflow-hidden"
     >
       {/* Heading */}
-      <div className="text-center mb-2">
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">
+      <div className="text-center mb-3 sm:mb-6">
+        <h1 className="text-2xl sm:text-4xl font-bold tracking-tight leading-tight">
           What Our <span className="text-yellow-400">Customers Say</span>
         </h1>
-        <p className="text-gray-400 mt-3 text-sm sm:text-base max-w-md mx-auto">
+        <p className="text-gray-400 mt-2 sm:mt-3 text-xs sm:text-base max-w-sm sm:max-w-md mx-auto">
           Real experiences from people who’ve enjoyed our food and hospitality.
         </p>
       </div>
 
       {/* Controller Header */}
-      <div className="flex justify-between items-center mb-2">
-        <h2 className="text-xl sm:text-2xl font-semibold text-white">
+      <div className="flex justify-between items-center mb-4 sm:mb-6">
+        <h2 className="text-lg sm:text-2xl font-semibold text-white">
           Customer Reviews
         </h2>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <button
             onClick={() => scroll("left")}
-            className="p-2 rounded-xl bg-gray-800/70 border border-gray-700 
-               hover:bg-yellow-400/20 hover:border-yellow-400/40 
-               transition-all duration-300 text-yellow-400"
+            className="p-1.5 sm:p-2 rounded-lg sm:rounded-xl bg-gray-800/70 border border-gray-700 
+         hover:bg-yellow-400/20 hover:border-yellow-400/40 
+         transition-all duration-300 text-yellow-400"
           >
-            <ChevronLeft size={20} strokeWidth={2.2} />
+            <ChevronLeft size={16} strokeWidth={2.2} />
           </button>
 
           <button
             onClick={() => scroll("right")}
-            className="p-2 rounded-xl bg-gray-800/70 border border-gray-700 
-               hover:bg-yellow-400/20 hover:border-yellow-400/40 
-               transition-all duration-300 text-yellow-400"
+            className="p-1.5 sm:p-2 rounded-lg sm:rounded-xl bg-gray-800/70 border border-gray-700 
+         hover:bg-yellow-400/20 hover:border-yellow-400/40 
+         transition-all duration-300 text-yellow-400"
           >
-            <ChevronRight size={20} strokeWidth={2.2} />
+            <ChevronRight size={16} strokeWidth={2.2} />
           </button>
         </div>
       </div>
@@ -127,25 +127,27 @@ const MenuTestimonials: React.FC = () => {
         {testimonialsData.map((item, index) => (
           <div
             key={index}
-            className="min-w-[300px] sm:min-w-[340px] bg-gradient-to-b from-[#111827] to-[#0d1320] flex flex-col items-center text-center p-8 rounded-2xl shadow-lg border border-white/10 hover:border-yellow-400/40 hover:shadow-yellow-400/10 transition-all duration-500 hover:-translate-y-2"
+            className="min-w-[240px] sm:min-w-[320px] bg-gradient-to-b from-[#111827] to-[#0d1320] flex flex-col items-center text-center p-5 sm:p-8 rounded-2xl shadow-lg border border-white/10 hover:border-yellow-400/40 hover:shadow-yellow-400/10 transition-all duration-500 hover:-translate-y-2"
           >
             <Image
               src={item.image}
               alt={item.name}
-              width={80}
-              height={80}
-              className="rounded-full object-cover border-2 border-yellow-400 shadow-md mb-4"
+              width={60}
+              height={60}
+              className="rounded-full object-cover border-2 border-yellow-400 shadow-md mb-3 sm:mb-4"
             />
-            <h3 className="font-semibold text-lg">{item.name}</h3>
-            <p className="text-gray-400 text-sm mb-3">{item.location}</p>
-            <div className="flex justify-center mb-4">
+            <h3 className="font-semibold text-sm sm:text-lg">{item.name}</h3>
+            <p className="text-gray-400 text-[11px] sm:text-sm mb-2 sm:mb-3">
+              {item.location}
+            </p>
+            <div className="flex justify-center mb-3 sm:mb-4">
               {Array.from({ length: item.rating }).map((_, i) => (
-                <span key={i} className="text-yellow-400 text-lg">
+                <span key={i} className="text-yellow-400 text-base sm:text-lg">
                   ★
                 </span>
               ))}
             </div>
-            <p className="text-gray-300 italic leading-relaxed text-sm sm:text-base">
+            <p className="text-gray-300 italic leading-relaxed text-xs sm:text-base">
               “{item.review}”
             </p>
           </div>
