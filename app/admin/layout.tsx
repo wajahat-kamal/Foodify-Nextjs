@@ -1,4 +1,3 @@
-"use client";
 
 import DashboardNavbar from "@/components/admin/DashboardNavbar";
 import Sidebar from "@/components/admin/Sidebar";
