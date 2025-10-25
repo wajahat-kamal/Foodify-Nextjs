@@ -80,13 +80,13 @@ const MenuTestimonials: React.FC = () => {
 
   return (
     <section
-      id="testimonials"
+      id="reviews"
       className="bg-[#0B111E] text-white py-20 px-6 md:px-20 lg:px-32 overflow-hidden"
     >
       {/* Heading */}
       <div className="text-center mb-3 sm:mb-6">
         <h1 className="text-2xl sm:text-4xl font-bold tracking-tight leading-tight">
-          What Our <span className="text-yellow-400">Customers Say</span>
+          What Our <span className="text-primary">Customers Say</span>
         </h1>
         <p className="text-gray-400 mt-2 sm:mt-3 text-xs sm:text-base max-w-sm sm:max-w-md mx-auto">
           Real experiences from people who’ve enjoyed our food and hospitality.
@@ -103,7 +103,7 @@ const MenuTestimonials: React.FC = () => {
             onClick={() => scroll("left")}
             className="p-1.5 sm:p-2 rounded-lg sm:rounded-xl bg-gray-800/70 border border-gray-700 
          hover:bg-yellow-400/20 hover:border-yellow-400/40 
-         transition-all duration-300 text-yellow-400"
+         transition-all duration-300 text-primary"
           >
             <ChevronLeft size={16} strokeWidth={2.2} />
           </button>
@@ -112,7 +112,7 @@ const MenuTestimonials: React.FC = () => {
             onClick={() => scroll("right")}
             className="p-1.5 sm:p-2 rounded-lg sm:rounded-xl bg-gray-800/70 border border-gray-700 
          hover:bg-yellow-400/20 hover:border-yellow-400/40 
-         transition-all duration-300 text-yellow-400"
+         transition-all duration-300 text-primary"
           >
             <ChevronRight size={16} strokeWidth={2.2} />
           </button>
@@ -134,7 +134,7 @@ const MenuTestimonials: React.FC = () => {
               alt={item.name}
               width={60}
               height={60}
-              className="rounded-full object-cover border-2 border-yellow-400 shadow-md mb-3 sm:mb-4"
+              className="rounded-full object-cover border-2 border-primary shadow-md mb-3 sm:mb-4"
             />
             <h3 className="font-semibold text-sm sm:text-lg">{item.name}</h3>
             <p className="text-gray-400 text-[11px] sm:text-sm mb-2 sm:mb-3">
@@ -142,7 +142,7 @@ const MenuTestimonials: React.FC = () => {
             </p>
             <div className="flex justify-center mb-3 sm:mb-4">
               {Array.from({ length: item.rating }).map((_, i) => (
-                <span key={i} className="text-yellow-400 text-base sm:text-lg">
+                <span key={i} className="text-primary text-base sm:text-lg">
                   ★
                 </span>
               ))}
