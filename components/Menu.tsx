@@ -2,63 +2,78 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import MenuItem from "./MenuItem";
+import axios from "axios";
 
-const menuItems = [
-  {
-    id: 1,
-    name: "Grilled Chicken Steak",
-    category: "Desi",
-    price: "$18",
-    image:
-      "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=80",
-  },
-  {
-    id: 2,
-    name: "Creamy Alfredo Pasta",
-    category: "Pasta & Italian",
-    price: "$14",
-    image:
-      "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=80",
-  },
-  {
-    id: 3,
-    name: "Classic Cheeseburger",
-    category: "Fast Food",
-    price: "$12",
-    image:
-      "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=80",
-  },
-  {
-    id: 4,
-    name: "Margherita Pizza",
-    category: "Fast Food",
-    price: "$16",
-    image:
-      "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=80",
-  },
-  {
-    id: 5,
-    name: "Sushi Platter",
-    category: "Desi",
+// const menuItems = [
+//   {
+//     id: 1,
+//     name: "Grilled Chicken Steak",
+//     category: "Desi",
+//     price: "$18",
+//     image:
+//       "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=80",
+//   },
+//   {
+//     id: 2,
+//     name: "Creamy Alfredo Pasta",
+//     category: "Pasta & Italian",
+//     price: "$14",
+//     image:
+//       "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=80",
+//   },
+//   {
+//     id: 3,
+//     name: "Classic Cheeseburger",
+//     category: "Fast Food",
+//     price: "$12",
+//     image:
+//       "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=80",
+//   },
+//   {
+//     id: 4,
+//     name: "Margherita Pizza",
+//     category: "Fast Food",
+//     price: "$16",
+//     image:
+//       "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=80",
+//   },
+//   {
+//     id: 5,
+//     name: "Sushi Platter",
+//     category: "Desi",
 
-    price: "$22",
-    image:
-      "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=80",
-  },
-  {
-    id: 6,
-    name: "Chocolate Lava Cake",
-    category: "Desserts",
-    price: "$10",
-    image:
-      "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=80",
-  },
-];
+//     price: "$22",
+//     image:
+//       "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=80",
+//   },
+//   {
+//     id: 6,
+//     name: "Chocolate Lava Cake",
+//     category: "Desserts",
+//     price: "$10",
+//     image:
+//       "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=80",
+//   },
+// ];
 
 const categories = ["All", "Desi", "Fast Food", "Pasta & Italian", "Desserts"];
 
 const Menu = () => {
+
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [menuItems, setMenuItems] = useState([])
+
+  const fetchMenuItems = async () => {
+    try {
+      const {data} = await axios.get('/api/menu')
+      if (data.success) {
+        setMenuItems(data.menus)
+      }
+    } catch (error) {
+      
+    }
+  }
+
 
   const filteredMenu =
     selectedCategory === "All"
