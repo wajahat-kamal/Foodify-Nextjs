@@ -21,7 +21,7 @@ function Header() {
       <div className="relative z-10 px-4 sm:px-10 mt-10 sm:mt-0">
         <h1 className="text-3xl sm:text-5xl md:text-7xl font-semibold text-white drop-shadow-lg leading-tight">
           Delight in Every Bite{" "}
-          <span className="block text-yellow-400 text-2xl sm:text-4xl md:text-6xl mt-2">
+          <span className="block text-primary text-2xl sm:text-4xl md:text-6xl mt-2">
             Welcome to Foodify
           </span>
         </h1>
@@ -35,7 +35,7 @@ function Header() {
           </a>
           <a
             href="#contact"
-            className="bg-yellow-500 text-black text-sm sm:text-base px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-medium transition-all duration-300 hover:bg-yellow-400 hover:scale-105"
+            className="bg-primary/95 text-black text-sm sm:text-base px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-medium transition-all duration-300 hover:bg-primary hover:scale-105"
           >
             Order Now
           </a>
