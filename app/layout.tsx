@@ -33,21 +33,21 @@ export default function RootLayout({
           {children}
           {/* ✅ React Hot Toast */}
           <Toaster
-            // position="top-right"
-            // toastOptions={{
-            //   duration: 3000,
-            //   style: {
-            //     background: "#141B2E",
-            //     color: "#fff",
-            //     border: "1px solid #222",
-            //   },
-            //   success: {
-            //     iconTheme: { primary: "#22c55e", secondary: "#0B111E" },
-            //   },
-            //   error: {
-            //     iconTheme: { primary: "#ef4444", secondary: "#0B111E" },
-            //   },
-            // }}
+            position="top-right"
+            toastOptions={{
+              duration: 3000,
+              style: {
+                background: "#141B2E",
+                color: "#fff",
+                border: "1px solid #222",
+              },
+              success: {
+                iconTheme: { primary: "#22c55e", secondary: "#0B111E" },
+              },
+              error: {
+                iconTheme: { primary: "#ef4444", secondary: "#0B111E" },
+              },
+            }}
           />
         </Providers>
       </body>
