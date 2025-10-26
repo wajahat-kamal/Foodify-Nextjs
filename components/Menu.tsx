@@ -5,58 +5,6 @@ import MenuItem from "./MenuItem";
 import axios from "axios";
 import toast from "react-hot-toast";
 
-// const menuItems = [
-//   {
-//     id: 1,
-//     name: "Grilled Chicken Steak",
-//     category: "Desi",
-//     price: "$18",
-//     image:
-//       "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=80",
-//   },
-//   {
-//     id: 2,
-//     name: "Creamy Alfredo Pasta",
-//     category: "Pasta & Italian",
-//     price: "$14",
-//     image:
-//       "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=80",
-//   },
-//   {
-//     id: 3,
-//     name: "Classic Cheeseburger",
-//     category: "Fast Food",
-//     price: "$12",
-//     image:
-//       "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=80",
-//   },
-//   {
-//     id: 4,
-//     name: "Margherita Pizza",
-//     category: "Fast Food",
-//     price: "$16",
-//     image:
-//       "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=80",
-//   },
-//   {
-//     id: 5,
-//     name: "Sushi Platter",
-//     category: "Desi",
-
-//     price: "$22",
-//     image:
-//       "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=80",
-//   },
-//   {
-//     id: 6,
-//     name: "Chocolate Lava Cake",
-//     category: "Desserts",
-//     price: "$10",
-//     image:
-//       "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=80",
-//   },
-// ];
-
 const categories = ["All", "Desi", "Fast Food", "Pasta & Italian", "Desserts"];
 
 const Menu = () => {
@@ -84,7 +32,7 @@ const Menu = () => {
   const filteredMenu =
     selectedCategory === "All"
       ? menuItems
-      : menuItems.filter((item) => item.category === selectedCategory);
+      : menuItems.filter((item: any) => item.category === selectedCategory);
 
   return (
     <section
@@ -129,7 +77,7 @@ const Menu = () => {
               {filteredMenu
                 .filter((_, index) => index % 2 === 0)
                 .map((item: any) => (
-                  <MenuItem item={item} />
+                  <MenuItem item={item} key={item._id} />
                 ))}
             </tbody>
           </table>
@@ -142,7 +90,7 @@ const Menu = () => {
               {filteredMenu
                 .filter((_, index) => index % 2 !== 0)
                 .map((item: any) => (
-                  <MenuItem item={item} />
+                  <MenuItem item={item} key={item._id} />
                 ))}
             </tbody>
           </table>
