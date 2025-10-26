@@ -1,8 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 interface MenuItemType {
-  id: string | number;
+  _id: string | number;
   image: string;
   name: string;
   category: string;
@@ -51,9 +52,9 @@ const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
 
       {/* Button */}
       <td className="py-2 px-2 md:px-4 text-center">
-        <button className="bg-yellow-400/90 text-black px-3 py-1 rounded-full text-[9px] sm:text-xs md:text-sm font-semibold hover:bg-yellow-400 hover:scale-105 md:hover:scale-110 transition-transform duration-300 shadow-md md:shadow-yellow-400/20">
-          Order
-        </button>
+        <Link href={`/menu/${item._id}`} className="bg-yellow-400/90 text-black px-3 py-1 rounded-full text-[9px] sm:text-xs md:text-sm font-semibold hover:bg-yellow-400 hover:scale-105 md:hover:scale-110 transition-transform duration-300 shadow-md md:shadow-yellow-400/20">
+          View
+        </Link>
       </td>
     </tr>
   );
