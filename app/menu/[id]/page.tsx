@@ -1,10 +1,8 @@
-// 'use client'
 import { connectDB } from "@/lib/mongodb";
 import Menu from "@/models/MenuItem";
 import Image from "next/image";
 import React from "react";
 import Footer from "@/components/Footer";
-import { useRouter } from "next/navigation";
 
 interface MenuDetailProps {
   params: Promise<{ id: string }>;
@@ -12,7 +10,6 @@ interface MenuDetailProps {
 
 export default async function MenuPage({ params }: MenuDetailProps) {
   const { id } = await params;
-  // const router = useRouter()
 
   await connectDB();
   const item = await Menu.findOne({ _id: id });
@@ -31,20 +28,22 @@ export default async function MenuPage({ params }: MenuDetailProps) {
 
   return (
     <div className="min-h-screen bg-[#0B111E] text-white flex flex-col">
+      <a
+        href="/"
+        className="flex items-center gap-2 cursor-pointer select-none ml-4 mt-3 md:ml-20 md:mt-6"
+      >
+        <img
+          src="/logo.svg"
+          alt="Foodify"
+          className="w-8 h-8 md:w-7 md:h-7 lg:w-9 lg:h-9 object-contain"
+        />
+        <h1 className="text-xl md:text-lg lg:text-2xl font-bold text-primary tracking-tight">
+          FOODIFY
+        </h1>
+      </a>
 
-      <div className="flex items-center gap-2 cursor-pointer select-none">
-          <img
-            src="/logo.svg"
-            alt="Foodify"
-            className="w-8 h-8 md:w-7 md:h-7 lg:w-9 lg:h-9 object-contain"
-          />
-          <h1 className="text-xl md:text-lg lg:text-2xl font-bold text-primary tracking-tight">
-            FOODIFY
-          </h1>
-        </div>
-     
       {/* ===== Food Detail Section ===== */}
-      <main className="flex flex-col md:flex-row items-center justify-center grow px-6 md:px-20 py-16 gap-12">
+      <main className="flex flex-col md:flex-row items-center justify-center grow px-6 md:px-20 py-6 gap-12">
         {/* Image */}
         <div className="w-full md:w-1/2 relative group">
           <Image
