@@ -92,21 +92,38 @@ export default function AddFood() {
 
         {/* Category */}
         <div>
-          <label className="block text-gray-300 font-medium mb-1 text-xs sm:text-base">
+          <label className="block text-gray-300 font-medium mb-2 text-sm sm:text-base">
             Category
           </label>
-          <select
-            name="category"
-            value={dataForm.category}
-            onChange={onChangeHandler}
-            className="w-full px-3 py-1.5 sm:py-2 bg-[#0B111E] border border-gray-700 rounded-md text-gray-100 text-xs sm:text-base focus:ring-2 focus:ring-yellow-400 outline-none transition-all"
-          >
-            <option value="">Select category</option>
-            <option value="Fast Food">Fast Food</option>
-            <option value="Desi">Desi</option>
-            <option value="Pasta & Italian">Pasta & Italian</option>
-            <option value="Dessert">Dessert</option>
-          </select>
+          <div className="relative">
+            <select
+              name="category"
+              value={dataForm.category}
+              onChange={onChangeHandler}
+              className="w-full appearance-none px-4 py-2 sm:py-2.5 bg-[#0B111E] border border-gray-700 rounded-lg text-gray-100 text-sm sm:text-base focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 outline-none transition-all pr-10 hover:border-yellow-400/40"
+            >
+              <option value="">Select Category</option>
+              <option value="Fast Food">🍔 Fast Food</option>
+              <option value="Desi">🍛 Desi</option>
+              <option value="Pasta & Italian">🍝 Pasta & Italian</option>
+              <option value="Desserts">🍨 Desserts</option>
+            </select>
+
+            {/* Down Arrow Icon */}
+            <svg
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </div>
         </div>
 
         {/* Image URL */}

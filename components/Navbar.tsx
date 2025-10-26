@@ -12,6 +12,7 @@ const NAV_ITEMS = ["Home", "About", "Menu", "Reviews", "Contact"];
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hydrated, setHydrated] = useState(false);
   const dispatch = useDispatch();
 
   // ✅ Get auth state
@@ -19,6 +20,7 @@ export default function Navbar() {
 
   // ✅ Check localStorage on mount (so refresh keeps you logged in)
   useEffect(() => {
+    setHydrated(true)
     const token = localStorage.getItem("token");
     if (token) dispatch(setToken(token));
   }, [dispatch]);
@@ -29,6 +31,8 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  if (!hydrated) return null;
 
   return (
     <>

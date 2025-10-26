@@ -8,7 +8,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "randomuser.me",
+        hostname: "media.istockphoto.com",
       },
     ],
   },
