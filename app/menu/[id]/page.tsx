@@ -18,7 +18,7 @@ export default async function MenuPage({ params }: MenuDetailProps) {
   if (!item) {
     return (
       <div className="min-h-screen bg-[#0B111E] text-white flex flex-col">
-        <div className="flex-grow flex items-center justify-center">
+        <div className="grow flex items-center justify-center">
           <h1 className="text-2xl font-semibold text-gray-400">
             Item not found
           </h1>

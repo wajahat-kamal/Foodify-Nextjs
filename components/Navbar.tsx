@@ -6,6 +6,7 @@ import Image from "next/image";
 import { X } from "lucide-react";
 import { useSelector, useDispatch } from "react-redux";
 import { setToken } from "@/redux/slices/authSlice";
+import { useRouter } from "next/navigation";
 
 const NAV_ITEMS = ["Home", "About", "Menu", "Reviews", "Contact"];
 
@@ -13,7 +14,9 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hydrated, setHydrated] = useState(false);
+
   const dispatch = useDispatch();
+  const router = useRouter()
 
   // ✅ Get auth state
   const { isAuthenticated } = useSelector((state: any) => state.auth);
@@ -45,7 +48,7 @@ export default function Navbar() {
         } px-4 md:px-8 lg:px-40 py-3 md:py-2 lg:py-4 flex items-center justify-between`}
       >
         {/* Logo */}
-        <div className="flex items-center gap-2 cursor-pointer select-none">
+        <div onClick={() => router.push('/')} className="flex items-center gap-2 cursor-pointer select-none">
           <img
             src="/logo.svg"
             alt="Foodify"
