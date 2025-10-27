@@ -2,11 +2,11 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import { toast } from "react-toastify";
 import { Lock, Mail } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { setToken } from "../../redux/slices/authSlice";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const AdminLogin: React.FC = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
