@@ -1,13 +1,10 @@
 "use client";
 import MenuItem from "@/components/MenuItem";
 import axios from "axios";
-import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 export default function Dashboard() {
-
   const [foodItems, setFoodItems] = useState([]);
-  const router = useRouter()
 
   const fetchFoodItems = async () => {
     const { data } = await axios.get("/api/menu");
@@ -15,14 +12,6 @@ export default function Dashboard() {
       setFoodItems(data.menus);
     }
   };
-
-  // useEffect(() => {
-  //    const token = document.cookie.includes('token=')
-  //    if (!token) {
-  //     router.push('/')
-  //    }
-  // }, [router])
-  
 
   useEffect(() => {
     fetchFoodItems();
