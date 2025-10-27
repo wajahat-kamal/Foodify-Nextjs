@@ -51,7 +51,7 @@ export default function Navbar() {
           scrolled
             ? "backdrop-blur-xl bg-[#0B111E]/90 border-b border-yellow-500/20 shadow-lg"
             : "bg-transparent"
-        } px-4 md:px-8 lg:px-40 py-3 md:py-2 lg:py-4 flex items-center justify-between`}
+        } px-4 md:px-8 lg:px-30 py-3 md:py-2 lg:py-4 flex items-center justify-between`}
       >
         {/* Logo */}
         <div onClick={() => router.push('/')} className="flex items-center gap-2 cursor-pointer select-none">

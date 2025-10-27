@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import MenuItem from "@/components/MenuItem";
 import axios from "axios";
 import toast from "react-hot-toast";
+import Navbar from "@/components/Navbar";
 
 const categories = ["All", "Desi", "Fast Food", "Pasta & Italian", "Desserts"];
 
@@ -37,10 +38,12 @@ const Menu = () => {
     <section id="menu" className="bg-[#0B111E] text-white overflow-hidden">
       {/* Header Section */}
       <div
-        className="relative h-64 sm:h-72 md:h-80 w-full bg-cover bg-center flex flex-col items-center justify-center text-center"
+        className="relative h-64 sm:h-72 md:h-90 w-full bg-cover bg-center flex flex-col items-center justify-center text-center"
         style={{ backgroundImage: "url('header_img.jpg')" }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/80 backdrop-blur-[1px] z-0"></div>
+
+        <Navbar />
 
         <div className="relative z-10 px-4">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-3">
