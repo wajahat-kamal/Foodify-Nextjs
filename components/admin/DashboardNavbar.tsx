@@ -4,15 +4,22 @@ import { useDispatch } from "react-redux";
 import { logout } from "@/redux/slices/authSlice";
 import { useRouter } from "next/navigation";
 import { LogOut } from "lucide-react";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 export default function DashboardNavbar() {
   const dispatch = useDispatch();
   const router = useRouter();
 
-  const handleLogout = () => {
-    dispatch(logout());
-    localStorage.removeItem("token");
-    router.push("/");
+  const handleLogout = async () => {
+    const { data } = await axios.post("/api/logout");
+    if (data.success) {
+      toast.success("Logout successfully");
+      dispatch(logout());
+      router.push("/");
+    } else {
+      toast.error(data.error)
+    }
   };
 
   return (
