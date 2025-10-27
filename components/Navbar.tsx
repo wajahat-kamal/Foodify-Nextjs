@@ -8,7 +8,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { setToken } from "@/redux/slices/authSlice";
 import { useRouter } from "next/navigation";
 
-const NAV_ITEMS = ["Home", "About", "Menu", "Reviews", "Contact"];
+const NAV_ITEMS = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "#about" },
+  { name: "Menu", href: "/menu" },
+  { name: "Reviews", href: "#reviews" },
+  { name: "Contact", href: "#contact" },
+];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -61,13 +67,13 @@ export default function Navbar() {
 
         {/* Desktop Links */}
         <ul className="hidden md:flex space-x-6 lg:space-x-8 text-white/90 font-medium text-sm lg:text-base">
-          {NAV_ITEMS.map((item) => (
-            <li key={item}>
+          {NAV_ITEMS.map((item, index) => (
+            <li key={item.name+index}>
               <a
-                href={`#${item.toLowerCase()}`}
+                href={item.href}
                 className="relative transition-all duration-300 hover:text-primary after:content-[''] after:block after:h-[2px] after:w-0 hover:after:w-full after:bg-primary after:transition-all after:duration-300 after:mt-1"
               >
-                {item}
+                {item.name}
               </a>
             </li>
           ))}
@@ -87,7 +93,7 @@ export default function Navbar() {
               href="/admin-login"
               className="bg-primary/95 text-black font-semibold px-5 py-1.5 lg:px-6 lg:py-2 rounded-full text-sm lg:text-base transition-all duration-300 hover:bg-primary shadow-md hover:shadow-primary/80"
             >
-              Admin Login
+              Admin Login Only
             </a>
           )}
         </div>
@@ -138,14 +144,14 @@ export default function Navbar() {
           {/* Links */}
           <nav className="mt-10 flex-1">
             <ul className="flex flex-col space-y-6">
-              {NAV_ITEMS.map((item) => (
-                <li key={item}>
+              {NAV_ITEMS.map((item, index) => (
+                <li key={item.name+index}>
                   <a
-                    href={`#${item.toLowerCase()}`}
+                    href={item.href}
                     onClick={() => setIsOpen(false)}
                     className="block text-white text-lg font-medium hover:text-yellow-400 transition"
                   >
-                    {item}
+                    {item.name}
                   </a>
                 </li>
               ))}
@@ -168,7 +174,7 @@ export default function Navbar() {
                 onClick={() => setIsOpen(false)}
                 className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-full transition-all duration-300 shadow-md hover:shadow-yellow-400/30"
               >
-                Admin Login
+                Admin Login Only
               </a>
             )}
           </div>
