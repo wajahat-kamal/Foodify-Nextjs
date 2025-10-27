@@ -16,12 +16,12 @@ export default function Dashboard() {
     }
   };
 
-  useEffect(() => {
-     const token = document.cookie.includes('token=')
-     if (!token) {
-      router.push('/')
-     }
-  }, [router])
+  // useEffect(() => {
+  //    const token = document.cookie.includes('token=')
+  //    if (!token) {
+  //     router.push('/')
+  //    }
+  // }, [router])
   
 
   useEffect(() => {
