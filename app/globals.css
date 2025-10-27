@@ -1,14 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-    --color-primary: #FDC700;
+  --color-primary: #fdc700;
 }
 
 html {
-    scroll-behavior: smooth;
-  }
-  
+  scroll-behavior: smooth;
+}
 
-::-webkit-scrollbar{
-    display: none;
+::-webkit-scrollbar {
+  display: none;
 }
