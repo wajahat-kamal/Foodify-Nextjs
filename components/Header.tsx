@@ -28,7 +28,7 @@ function Header() {
 
         <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mt-10 sm:mt-12">
           <a
-            href="#menu"
+            href="/menu"
             className="border border-white text-white text-sm sm:text-base px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-medium transition-all duration-300 hover:bg-white hover:text-black hover:scale-105"
           >
             Explore Menu

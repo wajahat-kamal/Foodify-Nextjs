@@ -5,7 +5,7 @@ import Testimonials from '@/components/Testimonials'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import { ToastContainer } from 'react-toastify';
-import MenuSection from '@/components/MenuSection'
+import Menu from '@/components/Menu'
 
 function Home() {
   return (
@@ -14,7 +14,7 @@ function Home() {
       <Header/>
       <About/>
 
-      <MenuSection/>
+      <Menu/>
       <Testimonials/>
       <Contact/>
       <Footer/>

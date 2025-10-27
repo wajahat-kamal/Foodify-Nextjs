@@ -3,12 +3,14 @@ import React, { useEffect, useState } from "react";
 import MenuItem from "./MenuItem";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const categories = ["All", "Desi", "Fast Food", "Pasta & Italian", "Desserts"];
 
 const Menu = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [menuItems, setMenuItems] = useState([]);
+  const router = useRouter();
 
   const fetchMenuItems = async () => {
     try {
@@ -32,6 +34,8 @@ const Menu = () => {
     selectedCategory === "All"
       ? menuItems
       : menuItems.filter((item: any) => item.category === selectedCategory);
+
+  const limitMenu = filteredMenu.slice(0, 10);
 
   return (
     <section
@@ -73,7 +77,7 @@ const Menu = () => {
         <div className="overflow-auto flex justify-center md:justify-end">
           <table className="w-full md:w-[90%] border-collapse border border-gray-800 rounded-none md:rounded-l-2xl shadow-lg overflow-hidden bg-[#141B29]/50 backdrop-blur-sm">
             <tbody>
-              {filteredMenu
+              {limitMenu
                 .filter((_, index) => index % 2 === 0)
                 .map((item: any) => (
                   <MenuItem item={item} key={item._id} />
@@ -86,7 +90,7 @@ const Menu = () => {
         <div className="overflow-auto flex justify-center md:justify-start">
           <table className="w-full md:w-[90%] border-collapse border border-gray-800 rounded-none md:rounded-r-2xl shadow-lg overflow-hidden bg-[#141B29]/50 backdrop-blur-sm">
             <tbody>
-              {filteredMenu
+              {limitMenu
                 .filter((_, index) => index % 2 !== 0)
                 .map((item: any) => (
                   <MenuItem item={item} key={item._id} />
@@ -96,6 +100,15 @@ const Menu = () => {
         </div>
       </div>
 
+      {/* View Full Menu Button */}
+      <div className="text-center mt-4">
+        <button
+          onClick={() => router.push("/menu")}
+          className="bg-yellow-400 hover:bg-yellow-500 text-black px-8 py-3 rounded-full font-semibold text-lg shadow-lg transition-all"
+        >
+          View Full Menu
+        </button>
+      </div>
     </section>
   );
 };
