@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { toast } from "react-toastify";
 import { Phone, Mail, MapPin, Send } from "lucide-react";
+import toast from "react-hot-toast";
 
 const Contact: React.FC = () => {
   const [result, setResult] = useState<string>("");
