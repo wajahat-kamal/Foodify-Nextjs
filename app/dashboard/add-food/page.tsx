@@ -49,20 +49,20 @@ export default function AddFood() {
   };
 
   return (
-    <div className="space-y-4 sm:space-y-6 p-3 sm:p-6">
+    <div className="space-y-4 sm:space-y-6 px-2 sm:px-6 py-4 bg-gradient-to-b from-[#0B111E] to-[#0E1626] rounded-none sm:rounded-xl">
       {/* Title */}
-      <h1 className="text-xl sm:text-3xl font-bold text-yellow-400 text-center">
+      <h1 className="text-lg sm:text-3xl font-bold text-yellow-400 text-center">
         Add New Food
       </h1>
 
       {/* Form */}
       <form
         onSubmit={onSubmitHandler}
-        className="bg-[#0F1628] p-4 sm:p-8 rounded-lg sm:rounded-2xl shadow-md border border-gray-800 max-w-md mx-auto space-y-4 sm:space-y-5"
+        className="bg-[#0F1628]/90 p-3 sm:p-8 rounded-md sm:rounded-2xl shadow-md border border-gray-800 w-full max-w-md mx-auto space-y-3 sm:space-y-5"
       >
         {/* Food Name */}
         <div>
-          <label className="block text-gray-300 font-medium mb-1 text-xs sm:text-base">
+          <label className="block text-gray-300 font-medium mb-1 text-[11px] sm:text-base">
             Food Name
           </label>
           <input
@@ -77,7 +77,7 @@ export default function AddFood() {
 
         {/* Price */}
         <div>
-          <label className="block text-gray-300 font-medium mb-1 text-xs sm:text-base">
+          <label className="block text-gray-300 font-medium mb-1 text-[11px] sm:text-base">
             Price (Rs.)
           </label>
           <input
@@ -92,7 +92,7 @@ export default function AddFood() {
 
         {/* Category */}
         <div>
-          <label className="block text-gray-300 font-medium mb-2 text-sm sm:text-base">
+          <label className="block text-gray-300 font-medium mb-1 text-[11px] sm:text-base">
             Category
           </label>
           <div className="relative">
@@ -100,7 +100,7 @@ export default function AddFood() {
               name="category"
               value={dataForm.category}
               onChange={onChangeHandler}
-              className="w-full appearance-none px-4 py-2 sm:py-2.5 bg-[#0B111E] border border-gray-700 rounded-lg text-gray-100 text-sm sm:text-base focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 outline-none transition-all pr-10 hover:border-yellow-400/40"
+              className="w-full appearance-none px-3 py-1.5 sm:py-2 bg-[#0B111E] border border-gray-700 rounded-md text-gray-100 text-xs sm:text-base focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 outline-none transition-all pr-8 hover:border-yellow-400/40"
             >
               <option value="">Select Category</option>
               <option value="Fast Food">🍔 Fast Food</option>
@@ -111,7 +111,7 @@ export default function AddFood() {
 
             {/* Down Arrow Icon */}
             <svg
-              className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none"
+              className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none"
               fill="none"
               stroke="currentColor"
               strokeWidth="2"
@@ -128,7 +128,7 @@ export default function AddFood() {
 
         {/* Image URL */}
         <div>
-          <label className="block text-gray-300 font-medium mb-1 text-xs sm:text-base">
+          <label className="block text-gray-300 font-medium mb-1 text-[11px] sm:text-base">
             Image URL
           </label>
           <input

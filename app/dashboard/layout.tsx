@@ -15,7 +15,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <Sidebar />
 
         {/* Page Content (adjusted for sidebar width) */}
-        <main className="flex-1 md:ml-64 ml-16 p-0 md:p-10 bg-[#0B111E] overflow-y-auto min-h-screen">
+        <main className="flex-1 md:ml-64 ml-16 p-1 md:p-10 bg-[#0B111E] overflow-y-auto">
           {children}
         </main>
       </div>
