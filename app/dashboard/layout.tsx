@@ -1,6 +1,6 @@
 
-import DashboardNavbar from "@/components/admin/DashboardNavbar";
-import Sidebar from "@/components/admin/Sidebar";
+import DashboardNavbar from "@/components/dashboard/DashboardNavbar";
+import Sidebar from "@/components/dashboard/Sidebar";
 import React from "react";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
