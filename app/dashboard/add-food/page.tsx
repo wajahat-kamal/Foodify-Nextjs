@@ -49,7 +49,7 @@ export default function AddFood() {
   };
 
   return (
-    <div className="space-y-4 sm:space-y-6 px-2 sm:px-6 py-4 bg-gradient-to-b from-[#0B111E] to-[#0E1626] rounded-none sm:rounded-xl">
+    <div className="space-y-4 px-2 sm:px-6 py-4 rounded-none sm:rounded-xl">
       {/* Title */}
       <h1 className="text-lg sm:text-3xl font-bold text-yellow-400 text-center">
         Add New Food
