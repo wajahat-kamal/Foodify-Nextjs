@@ -4,16 +4,30 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function DELETE(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
     await connectDB();
-    const deleted = await MenuItem.findByIdAndDelete(params.id);
-    if (!deleted) {
-      return NextResponse.json({ message: "Item not found" }, { status: 404 });
+
+    // ✅ Await the params Promise
+    const { id } = await context.params;
+
+    if (!id) {
+      return NextResponse.json({ success: false, message: "No ID provided" }, { status: 400 });
     }
-    return NextResponse.json({ message: "Item deleted successfully" });
+
+    const deleted = await MenuItem.findByIdAndDelete(id);
+
+    if (!deleted) {
+      return NextResponse.json({ success: false, message: "Item not found" }, { status: 404 });
+    }
+
+    return NextResponse.json({ success: true, message: "Item deleted successfully" });
   } catch (error) {
-    return NextResponse.json({ error: "Error deleting item" }, { status: 500 });
+    console.error("Error deleting item:", error);
+    return NextResponse.json(
+      { success: false, message: "Server error while deleting item" },
+      { status: 500 }
+    );
   }
 }

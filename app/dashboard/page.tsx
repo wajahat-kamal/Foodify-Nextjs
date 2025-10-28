@@ -6,7 +6,10 @@ import toast from "react-hot-toast";
 
 export default function Dashboard() {
   const [foodItems, setFoodItems] = useState<any[]>([]);
+  const [showConfirm, setShowConfirm] = useState(false);
+  const [deleteId, setDeleteId] = useState<string | number | null>(null);
 
+  // Fetch all items
   const fetchFoodItems = async () => {
     try {
       const { data } = await axios.get("/api/menu");
@@ -20,17 +23,28 @@ export default function Dashboard() {
     fetchFoodItems();
   }, []);
 
-  const deleteItem = async (id: string | number) => {
+  // Open confirmation modal
+  const confirmDelete = (id: string | number) => {
+    setDeleteId(id);
+    setShowConfirm(true);
+  };
+
+  // Delete item after confirmation
+  const deleteItem = async () => {
+    if (!deleteId) return;
     try {
-      const { data } = await axios.delete(`/api/menu/${id}`);
+      const { data } = await axios.delete(`/api/menu/${deleteId}`);
       if (data.success) {
-        setFoodItems((prev) => prev.filter((item) => item._id !== id))
+        setFoodItems((prev) => prev.filter((item) => item._id !== deleteId));
         toast.success("Item deleted successfully");
       } else {
         toast.error("Failed to delete item");
       }
     } catch (error) {
       toast.error("Something went wrong");
+    } finally {
+      setShowConfirm(false);
+      setDeleteId(null);
     }
   };
 
@@ -67,13 +81,41 @@ export default function Dashboard() {
                 <MenuItemDashboard
                   key={item._id}
                   item={item}
-                  deleteItem={deleteItem}
+                  confirmDelete={confirmDelete} // 👈 yahan change
                 />
               ))}
             </tbody>
           </table>
         </div>
       </div>
+
+      {/* Delete Confirmation Modal */}
+      {showConfirm && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black/70 z-50">
+          <div className="bg-[#141B2E] text-white p-6 rounded-xl shadow-lg w-[90%] max-w-sm text-center border border-gray-700">
+            <h2 className="text-lg font-bold text-yellow-400 mb-4">
+              Confirm Deletion
+            </h2>
+            <p className="text-gray-300 mb-6">
+              Are you sure you want to delete this item? This action cannot be undone.
+            </p>
+            <div className="flex justify-center gap-4">
+              <button
+                onClick={deleteItem}
+                className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md font-semibold shadow-md"
+              >
+                Delete
+              </button>
+              <button
+                onClick={() => setShowConfirm(false)}
+                className="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-md font-semibold shadow-md"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

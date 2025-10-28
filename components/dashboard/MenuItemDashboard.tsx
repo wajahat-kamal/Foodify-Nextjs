@@ -12,26 +12,16 @@ interface MenuItemType {
 
 interface MenuItemProps {
   item: MenuItemType;
-  deleteItem: (id: string | number) => void;
+  confirmDelete: (id: string | number) => void;
 }
 
-const MenuItemDashboard: React.FC<MenuItemProps> = ({ item, deleteItem }) => {
-
+const MenuItemDashboard: React.FC<MenuItemProps> = ({ item, confirmDelete }) => {
   return (
-    <tr
-      className="border-t border-gray-800 hover:bg-yellow-400/10 transition-all duration-300
-                 text-[10px] sm:text-xs md:text-sm
-                 md:hover:shadow-[0_4px_20px_rgba(255,255,0,0.15)] md:hover:scale-[1.01]"
-    >
+    <tr className="border-t border-gray-800 hover:bg-yellow-400/10 transition-all duration-300 text-[10px] sm:text-xs md:text-sm md:hover:shadow-[0_4px_20px_rgba(255,255,0,0.15)] md:hover:scale-[1.01]">
       {/* Image */}
       <td className="py-2 px-2 md:px-4">
         <div className="relative w-12 h-10 sm:w-16 sm:h-12 md:w-24 md:h-16 rounded-lg overflow-hidden shadow-sm md:shadow-md md:hover:shadow-yellow-400/30 transition-all duration-300">
-          <Image
-            src={item.image}
-            alt={item.name}
-            fill
-            className="object-cover"
-          />
+          <Image src={item.image} alt={item.name} fill className="object-cover" />
         </div>
       </td>
 
@@ -54,14 +44,19 @@ const MenuItemDashboard: React.FC<MenuItemProps> = ({ item, deleteItem }) => {
 
       {/* Buttons */}
       <td className="py-2 px-2 md:px-4 text-center">
-        <Link href={`/menu/${item._id}`} className="bg-yellow-400/90 text-black px-3 py-1 rounded-full text-[9px] sm:text-xs md:text-sm font-semibold hover:bg-yellow-400  transition-transform duration-300 shadow-md md:shadow-yellow-400/20">
+        <Link
+          href={`/menu/${item._id}`}
+          className="bg-yellow-400/90 text-black px-3 py-1 rounded-full text-[9px] sm:text-xs md:text-sm font-semibold hover:bg-yellow-400 transition-transform duration-300 shadow-md md:shadow-yellow-400/20"
+        >
           View
         </Link>
-        <button onClick={() => deleteItem(item._id)} className="bg-yellow-400/90 text-black px-3 py-1 ml-2 rounded-full text-[9px] sm:text-xs md:text-sm font-semibold hover:bg-yellow-400 transition-transform duration-300 shadow-md md:shadow-yellow-400/20">
+        <button
+          onClick={() => confirmDelete(item._id)}
+          className="bg-red-500/90 text-white px-3 py-1 ml-2 rounded-full text-[9px] sm:text-xs md:text-sm font-semibold hover:bg-red-600 transition-transform duration-300 shadow-md md:shadow-red-500/20"
+        >
           Delete
         </button>
       </td>
-
     </tr>
   );
 };
