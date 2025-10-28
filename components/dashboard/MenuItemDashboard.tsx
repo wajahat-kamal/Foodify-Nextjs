@@ -12,9 +12,11 @@ interface MenuItemType {
 
 interface MenuItemProps {
   item: MenuItemType;
+  deleteItem: (id: string | number) => void;
 }
 
-const MenuItemDashboard: React.FC<MenuItemProps> = ({ item }) => {
+const MenuItemDashboard: React.FC<MenuItemProps> = ({ item, deleteItem }) => {
+
   return (
     <tr
       className="border-t border-gray-800 hover:bg-yellow-400/10 transition-all duration-300
@@ -50,18 +52,16 @@ const MenuItemDashboard: React.FC<MenuItemProps> = ({ item }) => {
         Rs. {item.price}
       </td>
 
-      {/* Button */}
+      {/* Buttons */}
       <td className="py-2 px-2 md:px-4 text-center">
-        <Link href={`/menu/${item._id}`} className="bg-yellow-400/90 text-black px-3 py-1 rounded-full text-[9px] sm:text-xs md:text-sm font-semibold hover:bg-yellow-400 hover:scale-105 md:hover:scale-110 transition-transform duration-300 shadow-md md:shadow-yellow-400/20">
+        <Link href={`/menu/${item._id}`} className="bg-yellow-400/90 text-black px-3 py-1 rounded-full text-[9px] sm:text-xs md:text-sm font-semibold hover:bg-yellow-400  transition-transform duration-300 shadow-md md:shadow-yellow-400/20">
           View
         </Link>
+        <button onClick={() => deleteItem(item._id)} className="bg-yellow-400/90 text-black px-3 py-1 ml-2 rounded-full text-[9px] sm:text-xs md:text-sm font-semibold hover:bg-yellow-400 transition-transform duration-300 shadow-md md:shadow-yellow-400/20">
+          Delete
+        </button>
       </td>
 
-      <td className="py-2 px-2 md:px-4 text-center">
-        <Link href={`/menu/${item._id}`} className="bg-yellow-400/90 text-black px-3 py-1 rounded-full text-[9px] sm:text-xs md:text-sm font-semibold hover:bg-yellow-400 hover:scale-105 md:hover:scale-110 transition-transform duration-300 shadow-md md:shadow-yellow-400/20">
-          
-        </Link>
-      </td>
     </tr>
   );
 };
