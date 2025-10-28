@@ -14,7 +14,7 @@ interface MenuItemProps {
   item: MenuItemType;
 }
 
-const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
+const MenuItemDashboard: React.FC<MenuItemProps> = ({ item }) => {
   return (
     <tr
       className="border-t border-gray-800 hover:bg-yellow-400/10 transition-all duration-300
@@ -56,8 +56,14 @@ const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
           View
         </Link>
       </td>
+
+      <td className="py-2 px-2 md:px-4 text-center">
+        <Link href={`/menu/${item._id}`} className="bg-yellow-400/90 text-black px-3 py-1 rounded-full text-[9px] sm:text-xs md:text-sm font-semibold hover:bg-yellow-400 hover:scale-105 md:hover:scale-110 transition-transform duration-300 shadow-md md:shadow-yellow-400/20">
+          
+        </Link>
+      </td>
     </tr>
   );
 };
 
-export default MenuItem;
+export default MenuItemDashboard;

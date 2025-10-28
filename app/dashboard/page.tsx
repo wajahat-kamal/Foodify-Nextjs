@@ -1,4 +1,5 @@
 "use client";
+import MenuItemDashboard from "@/components/dashboard/MenuItemDashboard";
 import MenuItem from "@/components/MenuItem";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
@@ -47,7 +48,7 @@ export default function Dashboard() {
 
             <tbody>
               {foodItems.map((item: any) => (
-                <MenuItem item={item} key={item._id} />
+                <MenuItemDashboard item={item} key={item._id} />
               ))}
             </tbody>
           </table>
