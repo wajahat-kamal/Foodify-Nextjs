@@ -7,7 +7,7 @@ export async function DELETE(
   { params }: { params: { id: string } }
 ) {
   try {
-    connectDB();
+    await connectDB();
     const deleted = await MenuItem.findByIdAndDelete(params.id);
     if (!deleted) {
       return NextResponse.json({ message: "Item not found" }, { status: 404 });
