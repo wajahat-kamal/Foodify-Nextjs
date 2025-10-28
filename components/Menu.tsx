@@ -5,7 +5,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
-const categories = ["All", "Desi", "Fast Food", "Pasta & Italian", "Desserts"];
+const categories = ["All", "Desi", "Fast Food", "Pasta & Italian", "Desserts", "Drinks"];
 
 const Menu = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");

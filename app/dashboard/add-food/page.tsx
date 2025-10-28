@@ -103,10 +103,12 @@ export default function AddFood() {
               className="w-full appearance-none px-3 py-1.5 sm:py-2 bg-[#0B111E] border border-gray-700 rounded-md text-gray-100 text-xs sm:text-base focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 outline-none transition-all pr-8 hover:border-yellow-400/40"
             >
               <option value="">Select Category</option>
-              <option value="Fast Food">🍔 Fast Food</option>
-              <option value="Desi">🍛 Desi</option>
-              <option value="Pasta & Italian">🍝 Pasta & Italian</option>
-              <option value="Desserts">🍨 Desserts</option>
+              <option value="Fast Food">Fast Food</option>
+              <option value="Desi">Desi</option>
+              <option value="Pasta & Italian">Pasta & Italian</option>
+              <option value="Desserts">Desserts</option>
+              <option value="Drinks">Drinks</option>
+
             </select>
 
             {/* Down Arrow Icon */}
