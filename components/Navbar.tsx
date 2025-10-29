@@ -56,9 +56,9 @@ export default function Navbar() {
         {/* Logo */}
         <div onClick={() => router.push('/')} className="flex items-center gap-2 cursor-pointer select-none">
           <img
-            src="/logo.svg"
+            src="/logo.png"
             alt="Foodify"
-            className="w-8 h-8 md:w-7 md:h-7 lg:w-9 lg:h-9 object-contain"
+            className="w-8 h-8 md:w-7 md:h-7 lg:w-9 lg:h-9 object-contain rounded-full bg-white"
           />
           <h1 className="text-xl md:text-lg lg:text-2xl font-bold text-primary tracking-tight">
             FOODIFY

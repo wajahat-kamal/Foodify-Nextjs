@@ -7,7 +7,9 @@ const Footer = () => {
         {/* Brand Section */}
         <div>
           <div className="flex items-center gap-2 cursor-pointer select-none mb-2">
-            <img src="/logo.svg" alt="Foodify" className="w-8 h-8 object-contain" />
+            <img src="/logo.png" alt="Foodify" 
+            className="w-8 h-8 md:w-7 md:h-7 lg:w-9 lg:h-9 object-contain rounded-full bg-white"
+            />
             <h1 className="text-2xl font-bold text-white tracking-tight">FOODIFY</h1>
           </div>
           <p className="text-gray-400 text-sm leading-relaxed">
