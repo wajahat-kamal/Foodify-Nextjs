@@ -12,8 +12,8 @@ const NAV_ITEMS = [
   { name: "Home", href: "/" },
   { name: "About", href: "#about" },
   { name: "Menu", href: "/menu" },
-  { name: "Reviews", href: "#reviews" },
-  { name: "Contact", href: "#contact" },
+  { name: "Reviews", href: "/#reviews" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar() {
