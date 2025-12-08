@@ -2,6 +2,7 @@ import { connectDB } from "@/lib/mongodb";
 import Menu from "@/models/MenuItem";
 import Image from "next/image";
 import Footer from "@/components/Footer";
+import OrderHandlerButton from "@/components/OrderHandlerButton";
 
 interface MenuDetailProps {
   params: Promise<{ id: string }>;
@@ -75,9 +76,7 @@ export default async function MenuPage({ params }: MenuDetailProps) {
 
           <p className="text-3xl font-bold text-[#F0B100]">${item.price}</p>
 
-          <button className="mt-4 bg-[#F0B100] hover:bg-[#d99c00] text-black font-semibold text-lg px-6 py-3 rounded-xl shadow-lg transition-all duration-300 w-fit">
-            Order Now
-          </button>
+         <OrderHandlerButton name={item.name}/>
         </div>
       </section>
 
