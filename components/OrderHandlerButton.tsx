@@ -2,7 +2,7 @@
 import React from "react";
 import toast from "react-hot-toast";
 
-function OrderHandlerButton({name}: any) {
+function OrderHandlerButton({name}: { name: string }) {
 
    const orderHandler = (name: string) => {
     toast.success(`Your order for "${name}" has been placed!`)
