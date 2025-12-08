@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { LogOut } from "lucide-react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import Image from "next/image";
 
 export default function DashboardNavbar() {
   const dispatch = useDispatch();
@@ -29,10 +30,11 @@ export default function DashboardNavbar() {
         className="flex items-center gap-1 md:gap-3 cursor-pointer select-none group"
         onClick={() => router.push("/")}
       >
-        <img
-          src="/logo.png"
+        <Image
+          src="/favicon.png"
           alt="Foodify Logo"
-          className="w-8 h-8 md:w-7 md:h-7 lg:w-9 lg:h-9 object-contain rounded-full bg-white"
+          width={40}
+          height={40}
         />
         <h1 className="text-2xl font-extrabold text-white tracking-tight group-hover:text-yellow-400 transition-colors duration-300">
           FOODIFY

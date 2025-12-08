@@ -55,10 +55,11 @@ export default function Navbar() {
       >
         {/* Logo */}
         <div onClick={() => router.push('/')} className="flex items-center gap-2 cursor-pointer select-none">
-          <img
-            src="/logo.png"
+          <Image
+            src="/favicon.png"
             alt="Foodify"
-            className="w-8 h-8 md:w-7 md:h-7 lg:w-9 lg:h-9 object-contain rounded-full bg-white"
+            width={40}
+            height={40}
           />
           <h1 className="text-xl md:text-lg lg:text-2xl font-bold text-primary tracking-tight">
             FOODIFY
@@ -130,7 +131,7 @@ export default function Navbar() {
           {/* Header */}
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <img src="/logo.svg" alt="Foodify" className="w-8 h-8" />
+              <Image src="/favicon.png" alt="Foodify" width={40} height={40} />
               <h2 className="text-lg font-bold text-yellow-400">FOODIFY</h2>
             </div>
             <button

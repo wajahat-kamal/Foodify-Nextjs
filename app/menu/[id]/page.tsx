@@ -1,7 +1,6 @@
 import { connectDB } from "@/lib/mongodb";
 import Menu from "@/models/MenuItem";
 import Image from "next/image";
-import React from "react";
 import Footer from "@/components/Footer";
 
 interface MenuDetailProps {
@@ -32,55 +31,55 @@ export default async function MenuPage({ params }: MenuDetailProps) {
           href="/"
           className="flex items-center gap-2 cursor-pointer group select-none"
         >
-          <img
-            src="/logo.svg"
+          <Image
+            src="/favicon.png"
             alt="Foodify"
-            className="w-8 h-8 md:w-9 md:h-9 object-contain transition-transform duration-300 group-hover:scale-110"
+            width={40}
+            height={40}
+            className="object-contain transition-transform duration-300 group-hover:scale-110"
           />
-          <h1 className="text-2xl font-extrabold text-yellow-400 tracking-tight group-hover:text-yellow-300 transition-colors duration-300">
+          <h1 className="text-2xl font-extrabold text-[#F0B100] tracking-tight group-hover:opacity-80 transition">
             FOODIFY
           </h1>
         </a>
       </header>
 
       {/* ===== Food Detail Section ===== */}
-      <main className="flex flex-col md:flex-row items-center justify-center grow px-6 md:px-20 lg:px-32 py-12 gap-12">
-        {/* Image Section */}
-        <div className="w-full md:w-1/2 relative group">
-          <div className="overflow-hidden rounded-2xl shadow-[0_0_25px_rgba(255,204,0,0.15)] group-hover:shadow-[0_0_40px_rgba(255,204,0,0.35)] transition-all duration-500">
-            <Image
-              src={item.image}
-              alt={item.name}
-              width={600}
-              height={400}
-              className="w-full h-[320px] md:h-[450px] object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
-            />
-          </div>
+      <section className="flex flex-col md:flex-row items-center md:items-start gap-10 px-6 md:px-20 py-10">
+        {/* Large Food Image */}
+        <div className="w-full md:w-1/2 flex justify-center">
+          <Image
+            src={item.image}
+            alt={item.name}
+            width={500}
+            height={400}
+            className="w-full h-[260px] md:h-[350px] rounded-2xl object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
+          />
         </div>
 
-        {/* Info Section */}
-        <div className="w-full md:w-1/2 space-y-4">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-yellow-400 leading-tight">
+        {/* Food Info */}
+        <div className="w-full md:w-1/2 flex flex-col gap-5">
+          <span className="text-sm uppercase tracking-widest font-semibold text-[#F0B100] bg-[#F0B100]/20 px-3 py-1 rounded-md w-fit">
+            {item.category}
+          </span>
+
+          <h1 className="text-4xl md:text-5xl font-bold text-white">
             {item.name}
           </h1>
-          <p className="text-gray-400 text-xl uppercase tracking-wider font-medium">
-            {item.category}
-          </p>
-          <p className="text-gray-300 leading-relaxed text-base md:text-lg">
-            {item.description ||
-              "A mouthwatering dish freshly prepared with authentic ingredients and rich flavors to satisfy your cravings."}
+
+          <p className="text-gray-300 text-lg leading-relaxed">
+            A delicious, freshly prepared dish made with high-quality
+            ingredients — crafted to give you rich flavor and a satisfying
+            experience every time.
           </p>
 
-          <div className="flex items-center gap-4 mt-4">
-            <span className="bg-yellow-400 text-black px-5 py-2 rounded-full text-md font-semibold shadow-md">
-              Rs {item.price}
-            </span>
-            <button className="bg-yellow-400 hover:bg-yellow-500 text-black px-8 py-2 rounded-full font-semibold text-md shadow-md hover:shadow-yellow-400/40 transition-all duration-300 transform hover:scale-105">
-              Order Now
-            </button>
-          </div>
+          <p className="text-3xl font-bold text-[#F0B100]">${item.price}</p>
+
+          <button className="mt-4 bg-[#F0B100] hover:bg-[#d99c00] text-black font-semibold text-lg px-6 py-3 rounded-xl shadow-lg transition-all duration-300 w-fit">
+            Order Now
+          </button>
         </div>
-      </main>
+      </section>
 
       {/* ===== Footer ===== */}
       <Footer />

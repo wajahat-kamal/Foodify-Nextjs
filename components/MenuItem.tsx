@@ -47,7 +47,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
 
       {/* Price */}
       <td className="py-2 px-2 md:px-4 text-yellow-400 font-semibold text-[11px] sm:text-sm md:text-base text-center md:text-left">
-        Rs. {item.price}
+        ${item.price}
       </td>
 
       {/* Button */}
